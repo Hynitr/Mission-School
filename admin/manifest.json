@@ -1,0 +1,23 @@
+{
+  "short_name": "Paradise Admin App",
+  "name": "Paradise Admin App",
+  "description": "Paradise Admin App",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "dist/img/favicon2.ico",
+      "type": "image/ico",
+      "sizes": "64x64"
+    }
+  ],
+  "start_url": "./?v3&utm_source=web_app_manifest",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait",
+  "related_applications": [{
+    "platform": "web",
+    "url": "https://admin.paradisemodelschool.com.ng"
+  }]
+}
