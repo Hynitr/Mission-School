@@ -28,7 +28,7 @@ include("functions/init.php");
 <body class="hold-transition lockscreen">
     <!-- Automatic element centering -->
     <div class="lockscreen-wrapper">
-        <div class="col-12 lockscreen-logo">
+        <div class="lockscreen-logo">
             <a href="<?php echo $call['website'] ?>"><b><?php echo $call['school'] ?></b></a>
         </div>
         <!-- User name -->

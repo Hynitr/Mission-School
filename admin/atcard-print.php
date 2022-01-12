@@ -43,7 +43,7 @@ if (isset($_SESSION['code'])) {
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="pt-4">
-        <div style="width: 227px; background-color: gold;" class="card">
+        <div style="width: 227px; background-color: lightblue;" class="card">
             <div class="card-header text-center border-bottom-0">
                 <div class="ribbon-wrapper">
                     <div style="padding: 0px;" class="ribbon bg-black">
@@ -107,7 +107,7 @@ if (isset($_SESSION['code'])) {
             </div>
             <div class="card-footer pr-0 pl-0 pb-0 mt-0">
                 <div class="text-center pt-3">
-                    <p style="background-color: gold; font-size: 14px"><i><?php echo $call['tagline']?>
+                    <p style="background-color: lightblue; font-size: 14px"><i><?php echo $call['tagline']?>
                         </i></p>
 
                 </div>
