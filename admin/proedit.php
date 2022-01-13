@@ -150,16 +150,16 @@ if (!isset($_GET['id'])) {
                                     <select name="class" id="class" value="<?php echo $row['Class'] ?>"
                                         class="custom-select">
                                         <option name="class" id="class"><?php echo $row['Class'] ?></option>
-                                        <option name="class" id="class">Reception</option>
-                                        <option name="class" id="class">Transition</option>
-                                        <option name="class" id="class">Kindergarten</option>
+                                        <option name="class" id="class">Creche</option>
+                                        <option name="class" id="class">KG 1</option>
+                                        <option name="class" id="class">KG 2</option>
                                         <option name="class" id="class">Nursery 1</option>
                                         <option name="class" id="class">Nursery 2</option>
-                                        <option name="class" id="class">Grade 1</option>
-                                        <option name="class" id="class">Grade 2</option>
-                                        <option name="class" id="class">Grade 3</option>
-                                        <option name="class" id="class">Grade 4</option>
-                                        <option name="class" id="class">Grade 5</option>
+                                        <option name="class" id="class">Primary 1</option>
+                                        <option name="class" id="class">Primary 2</option>
+                                        <option name="class" id="class">Primary 3</option>
+                                        <option name="class" id="class">Primary 4</option>
+                                        <option name="class" id="class">Primary 5</option>
                                         <option name="class" id="class">J.S.S 1</option>
                                         <option name="class" id="class">J.S.S 2</option>
                                         <option name="class" id="class">J.S.S 3</option>
