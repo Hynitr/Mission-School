@@ -715,7 +715,7 @@ if (isset($_POST['delstf'])) {
 
 //--------------- send parent sms ---------------//
 
-if (isset($_POST['msg'])) {
+/*if (isset($_POST['msg'])) {
 
   $c = $_POST['msg'];
   $d = $_SESSION['cal']['blksmsname'];
@@ -751,14 +751,14 @@ $_SESSION['msgs'] = "Message sent successfully";
 echo '<script>window.location.href ="./parent"</script>';
 }
 }
-}
+}*/
 
 
 
 
 //------- send staff sms -----//
 
-if (isset($_POST['msgr'])) {
+/*if (isset($_POST['msgr'])) {
 
   $c = $_POST['msgr'];
   $d = $_SESSION['cal']['blksmsname'];
@@ -795,13 +795,13 @@ $_SESSION['msgs'] = "Message sent successfully";
 echo '<script>window.location.href ="./staffs"</script>';
 }
 }
-}
+}*/
 
 
 //birthday alert 
 function birthday_alert() {
 
-	$r = date("d");
+	/*$r = date("d");
 	$s = date("m");
 	
 	$sql="SELECT * FROM students WHERE `bday` = '0' OR `bday` = ''";
@@ -851,14 +851,14 @@ function birthday_alert() {
 	} else {
 		
 	}
-	}
+	}*/
 	}
 	
 	
 	
 	function staffbday() {
 	
-		$r = date("d");
+		/*$r = date("d");
 		$s = date("m");
 		
 		$sql="SELECT * FROM staff WHERE `date`= '$r' AND `month` = '$s' AND `bday` = '0' OR `bday` = ''";
@@ -910,7 +910,7 @@ function birthday_alert() {
 		} else {
 			
 		}
-		}
+		}*/
 			
 		}
 ?>
