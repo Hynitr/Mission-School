@@ -7,8 +7,15 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.location.href =
-      "./studres?id=" + classr + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
+    window.loTestion.href =
+      "./studres?id=" +
+      classr +
+      "&cls=" +
+      cls +
+      "&term=" +
+      term +
+      "&ses=" +
+      ses;
   });
 
   //uploading result data
@@ -30,26 +37,22 @@ $(document).ready(function () {
       $(toastr.error("Subject can`t be empty"));
     } else {
       if (test == null || test == "") {
-        $(toastr.error("Kindly input CAT 1 Score"));
+        $(toastr.error("Kindly input Test 1 Score"));
       } else {
         if (test > 10) {
-          $(toastr.error("CAT 1 score can`t be greater than 10"));
+          $(toastr.error("Test 1 score can`t be greater than 10"));
         } else {
           if (ass == null || ass == "") {
-            $(toastr.error("Kindly input CAT 2 score"));
+            $(toastr.error("Kindly input Test 2 score"));
           } else {
             if (ass > 10) {
-              $(toastr.error("CAT 2 score can`t be greater than 10"));
+              $(toastr.error("Test 2 score can`t be greater than 10"));
             } else {
               if (exc == null || exc == "") {
-                $(toastr.error("Kindly input CAT 3 score"));
+                $(toastr.error("Kindly input Test 3 score"));
               } else {
                 if (exc > 10) {
-                  $(
-                    toastr.error(
-                      "CAT 3 score can`t be greater than 10"
-                    )
-                  );
+                  $(toastr.error("Test 3 score can`t be greater than 10"));
                 } else {
                   if (exam == null || exam == "") {
                     $(toastr.error("Exam can`t be empty"));
@@ -140,26 +143,22 @@ $(document).ready(function () {
       $(toastr.error("Subject can`t be empty"));
     } else {
       if (test == null || test == "") {
-        $(toastr.error("Kindly input CAT 1 score"));
+        $(toastr.error("Kindly input Test 1 score"));
       } else {
         if (test > 10) {
-          $(toastr.error("CAT 1 score can`t be greater than 10"));
+          $(toastr.error("Test 1 score can`t be greater than 10"));
         } else {
           if (ass == null || ass == "") {
-            $(toastr.error("Kindly input CAT 2 score"));
+            $(toastr.error("Kindly input Test 2 score"));
           } else {
             if (ass > 10) {
-              $(toastr.error("CAT 2 score can`t be greater than 10"));
+              $(toastr.error("Test 2 score can`t be greater than 10"));
             } else {
               if (exc == null || exc == "") {
-                $(toastr.error("Kindly input CAT 3 score"));
+                $(toastr.error("Kindly input Test 3 score"));
               } else {
                 if (exc > 10) {
-                  $(
-                    toastr.error(
-                      "CAT 3 score can`t be greater than 10"
-                    )
-                  );
+                  $(toastr.error("Test 3 score can`t be greater than 10"));
                 } else {
                   if (exam == null || exam == "") {
                     $(toastr.error("Exam can`t be empty"));
@@ -213,7 +212,7 @@ $(document).ready(function () {
     $.ajax({
       type: "post",
       url: "functions/init.php",
-      data: { admr: admr, trmr: trmr, ccsr: ccsr, sbjjr: sbjjr, ses:ses },
+      data: { admr: admr, trmr: trmr, ccsr: ccsr, sbjjr: sbjjr, ses: ses },
       success: function (data) {
         $(toastr.error(data)).html(data);
       },
@@ -228,7 +227,15 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.location.href = "./resultnext?id=" + classr + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
+    window.loTestion.href =
+      "./resultnext?id=" +
+      classr +
+      "&cls=" +
+      cls +
+      "&term=" +
+      term +
+      "&ses=" +
+      ses;
   });
 
   //submit result
@@ -294,7 +301,9 @@ $(document).ready(function () {
                         );
                       } else {
                         if (ldsk == null || ldsk == "") {
-                          $(toastr.error("rganisational Ability field is empty"));
+                          $(
+                            toastr.error("rganisational Ability field is empty")
+                          );
                         } else {
                           if (ldsk > 5) {
                             $(
@@ -454,7 +463,7 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.location.href =
+    window.loTestion.href =
       "./moreres?id=" + std + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
   });
 
@@ -507,18 +516,17 @@ $(document).ready(function () {
     }
   });
 
+  //-------------reset assignmnets------------------//
+  $("#assreseted").click(function () {
+    var assclss = $("#clss").text();
 
-    //-------------reset assignmnets------------------//
-    $("#assreseted").click(function () {
-      var assclss = $("#clss").text();
-  
-      $.ajax({
-        type: "post",
-        url: "functions/init.php",
-        data: {assclss:assclss},
-        success: function (data) {
-          $(toastr.error(data)).html(data);
-        },
-      });
+    $.ajax({
+      type: "post",
+      url: "functions/init.php",
+      data: { assclss: assclss },
+      success: function (data) {
+        $(toastr.error(data)).html(data);
+      },
     });
+  });
 });

@@ -85,68 +85,35 @@ $hrt = $wsa['tot'];
                         <div class="form-group">
                             <div class="row">
                                 <?php
-                        if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-                            echo ' 
-                            
-                            <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">CAT 1(10) .:</label>
-                                    <input type="number" name="date" id="test" value="'.$row['test'].'"
-                                placeholder="CAT 1(10)" class="form-control">
-                            </div>
-                            <!-- /.input group -->
-                            <div class="form-group col-md-2">
-                                <label for="exampleInputEmail1">CAT 2(10).:</label>
-                                <input type="number" name="month" id="ass" value="'.$row['ass'].'"
-                                placeholder="CAT 2(10)" class="form-control">
-                            </div>
-                            <!-- /.input group -->
-                            <div class="for-group col-md-2" hidden>
-                                <label for="exampleInputEmail1">CAT 3(10).:</label>
-                                <input type="number" name="year" id="exc" value="0" placeholder="CAT 3(10"
-                                    class="form-control">
-                            </div>
-                            <!-- /.input group -->
-                            <div class="form-group col-md-2">
-                                <label for="exampleInputEmail1">Exam(80) .:</label>
-                                <input type="number" name="year" id="exam" min="1" max="90"
-                                    value="'.$row['exam'].'" placeholder="Exam(80)" class="form-control">
-                            </div>
-
-
-                            ';
-
-                            } else {
-
+                       
                             echo '
 
 
-                            <div class="form-group col-md-2">
-                                <label for="exampleInputEmail1">CAT 1(10) .:</label>
+                            <div class="form-group col-md-3">
+                                <label for="exampleInputEmail1">Test 1(10) .:</label>
                                 <input type="number" name="date" id="test" value="'.$row['test'].'"
-                                placeholder="CAT 1(10)" class="form-control">
+                                placeholder="Test 1(10)" class="form-control">
                             </div>
                             <!-- /.input group -->
-                            <div class="form-group col-md-2">
-                                <label for="exampleInputEmail1">CAT 2(10).:</label>
+                            <div class="form-group col-md-3">
+                                <label for="exampleInputEmail1">Test 2(10).:</label>
                                 <input type="number" name="month" id="ass" value="'.$row['ass'].'"
-                                placeholder="CAT 2(10)" class="form-control">
+                                placeholder="Test 2(10)" class="form-control">
                             </div>
                             <!-- /.input group -->
-                            <div class="for-group col-md-2">
-                                <label for="exampleInputEmail1">CAT 3(10).:</label>
+                            <div class="for-group col-md-3">
+                                <label for="exampleInputEmail1">Test 3(10).:</label>
                                 <input type="number" name="year" id="exc" value="'.$row['classex'].'"
-                                placeholder="CAT 3(10)" class="form-control">
+                                placeholder="Test 3(10)" class="form-control">
                             </div>
                             <!-- /.input group -->
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
                                 <label for="exampleInputEmail1">Exam(70) .:</label>
                                 <input type="number" name="year" id="exam" min="1" max="70"
                                     value="'.$row['exam'].'" placeholder="Exam(70)" class="form-control">
                             </div>
 
                             ';
-                            }
 
                             ?>
 

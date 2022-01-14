@@ -207,36 +207,14 @@ $updlslq = query($updls);
     <table class="table table-hover text-center table-bordered table-striped">
         <?php
 
-if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
 
             echo '
 
             <tr>
             <th>Subject</th>
-            <th width="90px">CAT 1 <br />(10)</th>
-            <th width="90px">CAT 2 <br />(10)</th>
-            <th>Exam Score<br>(80)</th>
-            <th>Total<br>(100)</th>
-            <th>1st Term <br />Score</th>
-            <th>2nd Term <br />Score</th>
-            <th>3rd Term <br />Score</th>
-            <th>Annual <br />Score</th>
-            <th>Grade</th>
-            <th>Remark</th>
-        </tr>
-
-            ';
-
-
-        } else {
-
-            echo '
-
-            <tr>
-            <th>Subject</th>
-            <th width="90px">CAT 1 <br />(10)</th>
-            <th width="90px">CAT 2 <br />(10)</th>
-            <th width="90px">CAT 3<br>(10)</th>
+            <th width="90px">Test 1 <br />(10)</th>
+            <th width="90px">Test 2 <br />(10)</th>
+            <th width="90px">Test 3<br>(10)</th>
             <th>Exam Score<br>(70)</th>
             <th>Total<br>(100)</th>
             <th>1st Term <br />Score</th>
@@ -248,9 +226,6 @@ if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls
         </tr>
             
             ';
-            
-            
-        }
 
 
 $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
@@ -277,28 +252,7 @@ if($tms == "1st Term"){
     }
     }
     
-    if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-        echo '
-
-        <tr>
-        <td>'.ucwords($row['subject']).'</td>
-        <td>'.$row['test'].'</td>
-        <td>'.$row['ass'].'</td>
-        <td>'.$row['exam'].'</td>
-        <td>'.$row['total'].'</td>
-        <td>'.$row2['fscore'].'</td>
-        <td>'.$row2['sndscore'].'</td>
-        <td>'.$row2['tscore'].'</td>
-        <td>'.$annual.'</td>
-        <td>'.$row['grade'].'</td>
-        <td>'.$row['remark'].'</td>
-        </tr>
-
-        ';
-
-        } else {
-
+    
         echo '
 
         <tr>
@@ -318,8 +272,6 @@ if($tms == "1st Term"){
 
 
         ';
-        }
-
 
         }
         }

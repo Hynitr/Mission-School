@@ -77,46 +77,19 @@ $rower = mysqli_fetch_array($res);
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap table-bordered table-striped">
-                        <?php
-                        if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
 
-                            echo '
+                        <tr class="text-center">
+                            <th>Subject</th>
+                            <th>Test 1</th>
+                            <th>Test 2</th>
+                            <th>Test 3 </th>
+                            <th>Exam</th>
+                            <th>Total</th>
+                            <th>Grade</th>
+                            <th>Remark</th>
 
-                            <thead>
-                            <tr class="text-center">
-                                <th>Subject</th>
-                                <th>CAT 1</th>
-                                <th>CAT 2</th>
-                                <th>Exam</th>
-                                <th>Total</th>
-                                <th>Grade</th>
-                                <th>Remark</th>
-
-                            </tr>
+                        </tr>
                         </thead>
-                            
-                            ';
-                        } else {
-
-                            echo '
-
-                            <thead>
-                            <tr class="text-center">
-                                <th>Subject</th>
-                                <th>CAT 1</th>
-                                <th>CAT 2</th>
-                                <th>CAT 3 </th>
-                                <th>Exam</th>
-                                <th>Total</th>
-                                <th>Grade</th>
-                                <th>Remark</th>
-
-                            </tr>
-                        </thead>
-                            
-                            ';
-                        }
-                        ?>
 
                         <tbody>
                             <?php
@@ -124,8 +97,6 @@ $rower = mysqli_fetch_array($res);
  $result_set=query($sql);
   while($row= mysqli_fetch_array($result_set))
  {
-
-    if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
 
         echo '
 
@@ -136,6 +107,7 @@ $rower = mysqli_fetch_array($res);
                             </td>
                             <td>'.$row['test'].'</td>
                             <td>'.$row['ass'].'</td>
+                            <td>'.$row['classex'].'</td>
                             <td>'.$row['exam'].'</td>
                             <td>'.$row['total'].'</td>
                             <td>'.$row['grade'].'</td>
@@ -145,31 +117,7 @@ $rower = mysqli_fetch_array($res);
                             </tr>
 
                             ';
-                            } else {
-
-                            echo '
-
-                            <tr class="text-center">
-                            <td>'.$row['subject'].' 
-                    <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>
-                                                </td>
-                                                
-                                                <td>'.$row['test'].'</td>
-                                                <td>'.$row['ass'].'</td>
-                                                <td>'.$row['classex'].'</td>
-                                                <td>'.$row['exam'].'</td>
-                                                <td>'.$row['total'].'</td>
-                                                <td>'.$row['grade'].'</td>
-                                                <td>'.$row['remark'].'</td>
-                    
-                    
-                                                </tr>
-                    
-
-
-                            ';
-                            }
-                            }
+                            } 
                             if(row_count($result_set) == 0) {
 
                             echo "<span style='color:red'>No records found</span>";
@@ -217,62 +165,24 @@ $rower = mysqli_fetch_array($res);
                         <div class="form-group">
                             <div class="row">
 
-                                <?php 
 
-                            if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-                                    echo '
-
-                                    <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">CAT 1(10) .:</label>
-                                    <input type="number" name="date" id="test" placeholder="CAT 1(5)"
+                                <div class="form-group col-md-2">
+                                    <label for="exampleInputEmail1">Test 1(10) .:</label>
+                                    <input type="number" name="date" id="test" placeholder="Test 1(10)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
                                 <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 2(10).:</label>
-                                    <input type="number" name="month" id="ass" placeholder="CAT 2(5)"
-                                        class="form-control">
-                                </div>
-
-
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3" hidden>
-                                    <label for="exampleInputEmail1">CAT 3(10).:</label>
-                                    <input type="number" name="year" id="exc" value="0" placeholder="Exercise(10)"
-                                        class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">Exam(80) .:</label>
-                                    <input type="number" name="year" id="exam" placeholder="Exam(90)"
-                                        class="form-control">
-                                </div>
-
-                                    ';
-
-                                } else {
-
-
-                                    echo '
-                                    
-                                    <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">CAT 1(10) .:</label>
-                                    <input type="number" name="date" id="test" placeholder="CAT 1(10)"
-                                        class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 2(10).:</label>
-                                    <input type="number" name="month" id="ass" placeholder="CAT 2(10)"
+                                    <label for="exampleInputEmail1">Test 2(10).:</label>
+                                    <input type="number" name="month" id="ass" placeholder="Test 2(10)"
                                         class="form-control">
                                 </div>
 
 
                                 <!-- /.input group -->
                                 <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 3(10).:</label>
-                                    <input type="number" name="year" id="exc" placeholder="CAT 3(10)"
+                                    <label for="exampleInputEmail1">Test 3(10).:</label>
+                                    <input type="number" name="year" id="exc" placeholder="Test 3(10)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
@@ -281,12 +191,6 @@ $rower = mysqli_fetch_array($res);
                                     <input type="number" name="year" id="exam" placeholder="Exam(70)"
                                         class="form-control">
                                 </div>
-                                    
-                                    ';
-                                }
-
-
-                                ?>
 
                                 <!-- /.input group -->
                                 <div class="form-group col-md-2" hidden>
