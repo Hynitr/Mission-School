@@ -19,6 +19,7 @@ include("functions/init.php");
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="manifest" href="manifest.json">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -72,6 +73,31 @@ include("functions/init.php");
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      console.log("Will the service worker register?");
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function(reg){
+          console.log("Yes, it did.");
+        }).catch(function(err) {
+          console.log("No it didn't. This happened: ", err)
+        });
+    }
+  </script>
+  <script src="service-worker.js">
+          // Service worker for Progressive Web App
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js', {
+              scope: '.' // THIS IS REQUIRED FOR RUNNING A PROGRESSIVE WEB APP FROM A NON_ROOT PATH
+          }).then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+          });
+      }
+  </script>
 </body>
 
 </html>

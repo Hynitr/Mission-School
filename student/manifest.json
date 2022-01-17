@@ -1,6 +1,6 @@
 {
-  "short_name": "Seyi Babs",
-  "name": "Seyi Babs",
+  "short_name": "Student Portal | Mission School",
+  "name": "Student Portal | Mission School",
   "description": "",
   "lang": "en",
   "icons": [
@@ -11,12 +11,12 @@
     }
   ],
   "start_url": "./?v3&utm_source=web_app_manifest",
-  "background_color": "#000000",
-  "theme_color": "#f0ecf9",
-  "color": "#ffffff",
-  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#007bff",
+  "color": "#000000",
+  "display": "minimal-ui",
   "related_applications": [{
     "platform": "web",
-    "url": "https://theseyibabs.com.ng"
+    "url": "https://student.missioncosmopolitanschool.com"
   }]
 }
