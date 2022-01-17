@@ -157,9 +157,9 @@ include("functions/top.php");
                                     <label>Department.:</label>
                                     <select name="dept" id="dept" class="custom-select">
                                         <option name="dept" id="dept">Null</option>
-                                        <option name="dept" id="dept">Nursery School</option>
-                                        <option name="dept" id="dept">Primary School</option>
-                                        <option name="dept" id="dept">Secondary School</option>
+                                        <option name="dept" id="dept">Art</option>
+                                        <option name="dept" id="dept">Science</option>
+                                        <option name="dept" id="dept">Commercial</option>
 
                                     </select>
                                 </div>
