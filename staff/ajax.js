@@ -425,9 +425,7 @@ $(document).ready(function () {
                                                       resm: resm,
                                                     },
                                                     success: function (data) {
-                                                      $(
-                                                        toastr.error(data)
-                                                      ).html(data);
+                                                      $(toastr.error(data)).html(data);
                                                     },
                                                   });
                                                 }
