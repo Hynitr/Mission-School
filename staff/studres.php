@@ -86,6 +86,7 @@ $rower = mysqli_fetch_array($res);
                             <th>Exam</th>
                             <th>Total</th>
                             <th>Grade</th>
+                            <th>Position</th>
                             <th>Remark</th>
 
                         </tr>
@@ -111,6 +112,7 @@ $rower = mysqli_fetch_array($res);
                             <td>'.$row['exam'].'</td>
                             <td>'.$row['total'].'</td>
                             <td>'.$row['grade'].'</td>
+                            <td>'.$row['position'].'</td>
                             <td>'.$row['remark'].'</td>
 
 
@@ -193,29 +195,10 @@ $rower = mysqli_fetch_array($res);
                                 </div>
 
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2" hidden>
+                                <div class="form-group col-md-2">
                                     <label for="exampleInputEmail1">Position in Class .:</label>
-                                    <input type="text" name="year" value='0' id="position"
-                                        placeholder="1st, 2nd, 3rd e.t.c" class="form-control">
-                                    <!--<select id="position" class="form-control">
-                                        <option id="position">1st</option>
-                                        <option id="position">2nd</option>
-                                        <option id="position">3rd</option>
-                                        <?php
-                        $x = 4;
-
-                        while($x <= $hrt) {
-                            echo '
-
-   
-                          <option id="position">'.$x.'th </option>
-                       
-
-                          <br>';
-                          $x++;
-                      }
-                      ?>
-                                    </select>-->
+                                    <input type="text" name="year" id="position" placeholder="1st, 2nd, 3rd e.t.c"
+                                        class="form-control">
 
                                 </div>
 

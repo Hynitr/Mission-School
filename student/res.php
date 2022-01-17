@@ -16,16 +16,6 @@ $tms  =  $_GET['term'];
 $cls  =  $_GET['cls'];
 $ses  =  $_GET['ses'];
 
-$chck = "SELECT * FROM students WHERE `AdminID` = '$data'";
-$chsl = query($chck);
-$rft  = mysqli_fetch_array($chsl);
-
-if($rft['fee'] == 'unpaid') {
-
-    echo  "Result has been disabled. Kindly pay up your school fee to view result! <br/><a href='#' onclick='goBack()';>Click here to go back</a>";
-
-} else {
-
 $sql3 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
 $result_set3 = query($sql3);
 $row3 = mysqli_fetch_array($result_set3);
@@ -43,6 +33,7 @@ $qw1  = mysqli_fetch_array($res1);
 $sql5 = "SELECT * FROM students WHERE `AdminID` = '$data'";
 $res2 = query($sql5);
 $qw2  = mysqli_fetch_array($res2);
+
 
 //percentage calculations
 $pee = "SELECT sum(sn) AS pss FROM result WHERE `admno` = '$data' AND `class` = '$cls' AND `term` = '$tms' AND `ses` = '$ses'";
@@ -135,10 +126,10 @@ $updlslq = query($updls);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> <?php echo $call['school'] ?> | Student Portal</title>
+    <title> <?php echo $call['school'] ?> | Staff Portal</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $call['school'] ?> | Student Portal">
+    <meta name="description" content="<?php echo $call['school'] ?> | Staff Portal">
     <meta name="keywords" content="<?php echo $call['school'] ?>">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -172,10 +163,9 @@ $updlslq = query($updls);
     </style>
 </head>
 
-<body>
+<body style="background: #dee2e6">
     <div class="text-center">
-        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b><?php echo $call['school'] ?></b></h1>
-        <h6><b>Gov`t Approved</b></h6>
+        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b>MISSION & COSMOPOLITAN SCHOOL</b></h1>
         <h5><?php echo $call['addr'] ?></h5>
         <h6><b>Tel.: <?php echo $call['tel'] ?> &nbsp; &nbsp; &nbsp; Website.: <?php echo $call['website'] ?> &nbsp;
                 &nbsp; &nbsp;
@@ -212,21 +202,51 @@ $updlslq = query($updls);
 
             <tr>
             <th>Subject</th>
-            <th width="90px">Test 1 <br />(10)</th>
-            <th width="90px">Test 2 <br />(10)</th>
-            <th width="90px">Test 3<br>(10)</th>
-            <th>Exam Score<br>(70)</th>
-            <th>Total<br>(100)</th>
-            <th>1st Term <br />Score</th>
+            <th>Test 1 <br />(10)</th>
+            <th>Test 2 <br />(10)</th>
+            <th>Test 3<br>(10)</th>
+            <th>Exam<br>Score(70)</th>
+            <th>Total<br>(100)</th>';
+            
+            if($tms == '1st Term') {
+                echo '
+                <th>1st Term <br />Score</th>
+                '; 
+            } else {
+
+            if($tms == '2nd Term') {
+
+                echo '
+                <th>1st Term <br />Score</th>
+                <th>2nd Term <br />Score</th>
+                ';
+            } else {
+
+            if($tms == '3rd Term') {
+
+            echo '
             <th>2nd Term <br />Score</th>
+            
             <th>3rd Term <br />Score</th>
-            <th>Annual <br />Score</th>
+
+            ';
+            }
+            }
+            }
+            
+            
+           
+            echo '
+            <th>Cumm <br />Score</th>
+            <th>Class <br />Avg.</th>
+            <th>Highest <br />in class</th>
+            <th>Lowest <br />in class</th>
+            <th>Position</th>
             <th>Grade</th>
             <th>Remark</th>
         </tr>
             
             ';
-
 
 $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
 $result_set=query($sql);
@@ -235,23 +255,78 @@ if(row_count($result_set) == "") {
           } else {
 while($row= mysqli_fetch_array($result_set))
  {
-  $frd = $row['subject'];
+$frd = $row['subject'];
 $sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd' AND `ses` = '$ses'";
 $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
 
+
+
+//class avg
+$aql = "SELECT sum(`total`) as totss, sum(`sn`) as stds from `result` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `term` = '$tms'";
+$aes = query($aql);
+$aow = mysqli_fetch_array($aes);
+
+$clavg = $aow['totss'] / $aow['stds'];
+
+
 if($tms == "1st Term"){
+
+    //get highest score
+    $hsl = "SELECT MAX(`fscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hes = query($hsl);
+    $how = mysqli_fetch_array($hes);
+    
+    $highest = $how['highest'];
+
+
+    //get lowest score
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $les = query($lsl);
+    $low = mysqli_fetch_array($les);
+    
+    $lowest = $low['lowest'];
+    
     $annual = $row2['fscore'];
     } else {
     if($tms == "2nd Term") {
+
+    //get highest score
+    $hsl = "SELECT MAX(`sndscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hes = query($hsl);
+    $how = mysqli_fetch_array($hes);
+    
+    $highest = $how['highest'];
+
+    //get lowest score
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $les = query($lsl);
+    $low = mysqli_fetch_array($les);
+    
+    $lowest = $low['lowest'];
+    
     $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
     }else {
     if($tms == "3rd Term") {
+
+        //get highest score
+    $hsl = "SELECT MAX(`tscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hes = query($hsl);
+    $how = mysqli_fetch_array($hes);
+    
+    $highest = $how['highest'];
+
+    //get lowest score
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $les = query($lsl);
+    $low = mysqli_fetch_array($les);
+    
+    $lowest = $low['lowest'];
+    
       $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
     }
     }
     }
-    
     
         echo '
 
@@ -261,17 +336,48 @@ if($tms == "1st Term"){
         <td>'.$row['ass'].'</td>
         <td>'.$row['classex'].'</td>
         <td>'.$row['exam'].'</td>
-        <td>'.$row['total'].'</td>
+        <td>'.$row['total'].'</td>';
+
+        if($tms == '1st Term') {
+            echo '
+            <td>'.$row2['fscore'].'</td>
+            '; 
+        } else {
+
+        if($tms == '2nd Term') {
+
+            echo '
+            <td>'.$row2['fscore'].'</td>
+            <td>'.$row2['sndscore'].'</td>
+            ';
+        } else {
+
+        if($tms == '3rd Term') {
+
+        echo '
         <td>'.$row2['fscore'].'</td>
         <td>'.$row2['sndscore'].'</td>
         <td>'.$row2['tscore'].'</td>
+
+        ';
+        }
+        }
+        }
+        
+
+        echo '
         <td>'.$annual.'</td>
+        <td>'.round($clavg,0).'</td>
+        <td>'.$highest.'</td>
+        <td>'.$lowest.'</td>
+        <td>'.$row['position'].'</td>
         <td>'.$row['grade'].'</td>
         <td>'.$row['remark'].'</td>
         </tr>
 
 
         ';
+
 
         }
         }
@@ -354,7 +460,6 @@ window.addEventListener("load", window.print());
 
 </html>
 <?php
-  }
 }
 }
 }

@@ -89,7 +89,7 @@ $hrt = $wsa['tot'];
                             echo '
 
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="exampleInputEmail1">Test 1(10) .:</label>
                                 <input type="number" name="date" id="test" value="'.$row['test'].'"
                                 placeholder="Test 1(10)" class="form-control">
@@ -107,7 +107,7 @@ $hrt = $wsa['tot'];
                                 placeholder="Test 3(10)" class="form-control">
                             </div>
                             <!-- /.input group -->
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="exampleInputEmail1">Exam(70) .:</label>
                                 <input type="number" name="year" id="exam" min="1" max="70"
                                     value="'.$row['exam'].'" placeholder="Exam(70)" class="form-control">
@@ -118,29 +118,11 @@ $hrt = $wsa['tot'];
                             ?>
 
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2" hidden>
+                                <div class="form-group col-md-2">
                                     <label for="exampleInputEmail1">Position in Class .:</label>
                                     <input type="text" name="year" id="position" placeholder="1st, 2nd, 3rd e.t.c"
                                         class="form-control" value="<?php echo $row['position']; ?>">
-                                    <!--- <select id="position" class="form-control">
-                                        <option id="position">1st</option>
-                                        <option id="position">2nd</option>
-                                        <option id="position">3rd</option>
-                                        <?php
-                        $x = 4;
 
-                        while($x <= $hrt) {
-                            echo '
-
-   
-                          <option id="position">'.$x.'th </option>
-                       
-
-                          <br>';
-                          $x++;
-                      }
-                      ?>
-                                    </select>--->
 
                                 </div>
 
