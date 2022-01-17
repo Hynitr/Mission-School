@@ -118,21 +118,21 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Reception" class="nav-link">
+                                            <a href="./delstud?id=Creche" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Reception</p>
+                                                <p>Creche</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Transition" class="nav-link">
+                                            <a href="./delstud?id=KG 1" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Transition</p>
+                                                <p>KG 1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Kindergarten" class="nav-link">
+                                            <a href="./delstud?id=KG 2" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Kindergarten</p>
+                                                <p>KG 2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -148,33 +148,33 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Grade 1" class="nav-link">
+                                            <a href="./delstud?id=Primary 1" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Grade 1</p>
+                                                <p>Primary 1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Grade 2" class="nav-link">
+                                            <a href="./delstud?id=Primary 2" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Grade 2</p>
+                                                <p>Primary 2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Grade 3" class="nav-link">
+                                            <a href="./delstud?id=Primary 3" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Grade 3</p>
+                                                <p>Primary 3</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Grade 4" class="nav-link">
+                                            <a href="./delstud?id=Primary 4" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Grade 4</p>
+                                                <p>Primary 4</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./delstud?id=Grade 5" class="nav-link">
+                                            <a href="./delstud?id=Primary 5" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Grade 5</p>
+                                                <p>Primary 5</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
