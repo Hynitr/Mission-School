@@ -1,0 +1,22 @@
+{
+  "short_name": "Seyi Babs",
+  "name": "Seyi Babs",
+  "description": "",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "pwa.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "./?v3&utm_source=web_app_manifest",
+  "background_color": "#000000",
+  "theme_color": "#f0ecf9",
+  "color": "#ffffff",
+  "display": "standalone",
+  "related_applications": [{
+    "platform": "web",
+    "url": "https://theseyibabs.com.ng"
+  }]
+}
