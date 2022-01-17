@@ -7,7 +7,7 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.loTestion.href =
+    window.location.href =
       "./studres?id=" +
       classr +
       "&cls=" +
@@ -227,7 +227,7 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.loTestion.href =
+    window.location.href =
       "./resultnext?id=" +
       classr +
       "&cls=" +
