@@ -463,7 +463,7 @@ $(document).ready(function () {
     var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.loTestion.href =
+    window.location.href =
       "./moreres?id=" + std + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
   });
 
