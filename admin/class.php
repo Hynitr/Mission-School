@@ -72,7 +72,7 @@ $q = mysqli_fetch_array($w);
                                     </thead>
                                     <tbody>
                                         <?php
- $sql="SELECT * FROM students WHERE class= '$data'";
+ $sql="SELECT * FROM students WHERE class= '$data' ORDER BY `surName` asc";
  $result_set=query($sql);
   while($row= mysqli_fetch_array($result_set))
  {

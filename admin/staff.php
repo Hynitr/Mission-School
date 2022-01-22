@@ -61,7 +61,7 @@ $q = mysqli_fetch_array($w);
                                     </thead>
                                     <tbody>
                                         <?php
- $sql="SELECT * FROM staff WHERE `category`= '$data'";
+ $sql="SELECT * FROM staff WHERE `category`= '$data' ORDER BY `surname` asc";
  $result_set=query($sql);
   while($row= mysqli_fetch_array($result_set))
  {
