@@ -155,9 +155,25 @@ $updlslq = query($updls);
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
-    body {
-        -webkit-print-color-adjust: exact !important;
-        color: black;
+    .table-bordered th,
+    .table-bordered td {
+        border: 2px solid black;
+    }
+
+    @media print {
+        body {
+            background-image: url('dist/img/res.png');
+        }
+
+        .table-bordered th,
+        .table thead tr td,
+        .table tbody tr td {
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: black !important;
+            background-color: red;
+            -webkit-print-color-adjust: exact;
+        }
     }
     </style>
 </head>
@@ -193,7 +209,7 @@ $updlslq = query($updls);
         </div>
     </div>
     <br />
-    <table class="table table-sm table-hover text-center table-bordered table-striped">
+    <table class="table table-sm table-hover text-center table-bordered table-striped border-primary">
         <?php
 
 
@@ -381,7 +397,7 @@ if($tms == "1st Term"){
         }
         ?>
     </table>
-    <table style=" width: 100%;" class="table table-hover table-bordered table-striped">
+    <table style=" width: 100%;" class="table table-bordered">
 
         <tr>
             <th class="text-center" colspan="2">Affective Domain</th>
@@ -449,14 +465,13 @@ if(row_count($result_set2) == "") {
         </tr>
     </table>
 </body>
-
-<script type="text/javascript">
-window.addEventListener("load", window.print());
-</script>
-
-</html>
 <?php
 }
 }
 }
 ?>
+<script>
+window.addEventListener("load", window.print());
+</script>
+
+</html>

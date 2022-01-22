@@ -465,14 +465,13 @@ if(row_count($result_set2) == "") {
         </tr>
     </table>
 </body>
-
-<script type="text/javascript">
-window.addEventListener("load", window.print());
-</script>
-
-</html>
 <?php
 }
 }
 }
 ?>
+<script>
+window.addEventListener("load", window.print());
+</script>
+
+</html>
