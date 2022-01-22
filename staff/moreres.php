@@ -193,7 +193,7 @@ $updlslq = query($updls);
         </div>
     </div>
     <br />
-    <table class="table table-sm table-hover text-center table-bordered table-striped" style="background: black;">
+    <table class="table table-sm table-hover text-center table-bordered table-striped">
         <?php
 
 
@@ -304,7 +304,7 @@ if($tms == "1st Term"){
     
     $lowest = $low['lowest'];
     
-    $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
+    $annual = round(($row2['fscore'] + $row2['sndscore']) / 2,1);
     }else {
     if($tms == "3rd Term") {
 
@@ -322,7 +322,7 @@ if($tms == "1st Term"){
     
     $lowest = $low['lowest'];
     
-      $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
+      $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3,1);  
     }
     }
     }
@@ -356,7 +356,6 @@ if($tms == "1st Term"){
         echo '
         <td>'.$row2['fscore'].'</td>
         <td>'.$row2['sndscore'].'</td>
-        <td>'.$row2['tscore'].'</td>
 
         ';
         }
@@ -382,7 +381,7 @@ if($tms == "1st Term"){
         }
         ?>
     </table>
-    <table style="width: 100%;" class="table table-hover table-bordered table-striped">
+    <table style=" width: 100%;" class="table table-hover table-bordered table-striped">
 
         <tr>
             <th class="text-center" colspan="2">Affective Domain</th>
