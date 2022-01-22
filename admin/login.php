@@ -25,6 +25,11 @@ include("functions/init.php");
     <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
     <link rel="manifest" href="manifest.json">
 </head>
+<style>
+body {
+    background-image: url('dist/img/res.png');
+}
+</style>
 
 <body class="hold-transition lockscreen">
     <!-- Automatic element centering -->
@@ -102,29 +107,29 @@ include("functions/init.php");
     <script src="ajax.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
-      console.log("Will the service worker register?");
-      navigator.serviceWorker.register('service-worker.js')
-        .then(function(reg){
-          console.log("Yes, it did.");
-        }).catch(function(err) {
-          console.log("No it didn't. This happened: ", err)
+        console.log("Will the service worker register?");
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function(reg) {
+                console.log("Yes, it did.");
+            }).catch(function(err) {
+                console.log("No it didn't. This happened: ", err)
+            });
+    }
+    </script>
+    <script src="service-worker.js">
+    // Service worker for Progressive Web App
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js', {
+            scope: '.' // THIS IS REQUIRED FOR RUNNING A PROGRESSIVE WEB APP FROM A NON_ROOT PATH
+        }).then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
         });
     }
-  </script>
-  <script src="service-worker.js">
-          // Service worker for Progressive Web App
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js', {
-              scope: '.' // THIS IS REQUIRED FOR RUNNING A PROGRESSIVE WEB APP FROM A NON_ROOT PATH
-          }).then(function(registration) {
-              // Registration was successful
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          }, function(err) {
-              // registration failed :(
-              console.log('ServiceWorker registration failed: ', err);
-          });
-      }
-  </script>
+    </script>
 </body>
 
 </html>
