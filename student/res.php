@@ -155,17 +155,33 @@ $updlslq = query($updls);
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
-    .table-bordered td,
-    .table-bordered th {
+    .table-bordered th,
+    .table-bordered td {
+        border: 2px solid black;
+    }
 
-        border: 1px solid #000000;
+    @media print {
+        body {
+            background-image: url('dist/img/res.png');
+        }
+
+        .table-bordered th,
+        .table thead tr td,
+        .table tbody tr td {
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: black !important;
+            background-color: red;
+            -webkit-print-color-adjust: exact;
+        }
     }
     </style>
 </head>
 
-<body style="background: #dee2e6">
+<body
+    style="background-image: url('dist/img/res.png'); background-repeat: no-repeat; background-position: center; background-size: contain;">
     <div class="text-center">
-        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b>MISSION & COSMOPOLITAN SCHOOL</b></h1>
+        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b>MISSION & COSMOPOLITAN SCHOOLS</b></h1>
         <h5><?php echo $call['addr'] ?></h5>
         <h6><b>Tel.: <?php echo $call['tel'] ?> &nbsp; &nbsp; &nbsp; Website.: <?php echo $call['website'] ?> &nbsp;
                 &nbsp; &nbsp;
@@ -177,7 +193,6 @@ $updlslq = query($updls);
         <h3>STUDENT PROGRESS REPORT FOR <?php echo strtoupper($tms) ?></h3>
         <br />
     </div>
-
     <div class="container">
         <div class="row">
             <h5 class="col-sm-6">Name.:
@@ -194,7 +209,7 @@ $updlslq = query($updls);
         </div>
     </div>
     <br />
-    <table class="table table-hover text-center table-bordered table-striped">
+    <table class="table table-sm table-hover text-center table-bordered table-striped border-primary">
         <?php
 
 
@@ -225,9 +240,9 @@ $updlslq = query($updls);
             if($tms == '3rd Term') {
 
             echo '
-            <th>2nd Term <br />Score</th>
+            <th>1st Term <br />Score</th>
             
-            <th>3rd Term <br />Score</th>
+            <th>2nd Term <br />Score</th>
 
             ';
             }
@@ -305,7 +320,7 @@ if($tms == "1st Term"){
     
     $lowest = $low['lowest'];
     
-    $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
+    $annual = round(($row2['fscore'] + $row2['sndscore']) / 2,1);
     }else {
     if($tms == "3rd Term") {
 
@@ -323,7 +338,7 @@ if($tms == "1st Term"){
     
     $lowest = $low['lowest'];
     
-      $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
+      $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3,1);  
     }
     }
     }
@@ -357,7 +372,6 @@ if($tms == "1st Term"){
         echo '
         <td>'.$row2['fscore'].'</td>
         <td>'.$row2['sndscore'].'</td>
-        <td>'.$row2['tscore'].'</td>
 
         ';
         }
@@ -383,8 +397,7 @@ if($tms == "1st Term"){
         }
         ?>
     </table>
-
-    <table style="width: 100%;" class="table table-hover table-bordered table-striped">
+    <table style=" width: 100%;" class="table table-bordered">
 
         <tr>
             <th class="text-center" colspan="2">Affective Domain</th>
@@ -435,7 +448,7 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['neatness'] ?></td>
             <td>Co-operation</td>
             <td><?php echo $row2['aesth'] ?></td>
-            <td colspan="2" rowspan="6"><b>Principal Comment.:</b> &nbsp;&nbsp;
+            <td colspan="2"><b>Principal Comment.:</b> &nbsp;&nbsp;
                 <?php echo ucwords($row2['principal']) ?></td>
         </tr>
         <tr>
@@ -451,16 +464,14 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['relation'] ?></td>
         </tr>
     </table>
-
 </body>
-
-<script type="text/javascript">
-window.addEventListener("load", window.print());
-</script>
-
-</html>
 <?php
 }
 }
 }
 ?>
+<script>
+window.addEventListener("load", window.print());
+</script>
+
+</html>
