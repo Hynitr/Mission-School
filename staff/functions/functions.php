@@ -522,6 +522,10 @@ if (isset($_POST['admr']) && isset($_POST['trmr']) && isset($_POST['ccsr']) && i
 	$sql = "DELETE FROM result WHERE `admno` = '$adm' AND `term` = '$trm' AND `class` = '$ccs' AND `subject` = '$sbjj' AND `ses` = '$ses'";
 	$res = query($sql);
 
+	$ssl = "DELETE FROM score WHERE `admno` = '$adm' AND `term` = '$trm' AND `class` = '$ccs' AND `subject` = '$sbjj' AND `ses` = '$ses'";
+	$qws = query($ssl);
+
+
 	$_SESSION['del'] = "Subject Result deleted sucessfully";
 
 	echo 'Loading.. Please wait';	
