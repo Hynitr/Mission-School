@@ -36,17 +36,17 @@ function display_message() {
 
 function validation_errors($error_message) {
 
-$error_message = <<<DELIMITER
+	$error_message = <<<DELIMITER
 
-<div class="alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
-    <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
-		<span class="icon-sc-cl" aria-hidden="true">&times;</span>
-									</button>
-                 <p><strong>$error_message </strong></p>
-                            </div>
-DELIMITER;
+	<div class="alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
+		<button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+			<span class="icon-sc-cl" aria-hidden="true">&times;</span>
+										</button>
+					<p><strong>$error_message </strong></p>
+								</div>
+	DELIMITER;
 
-   return $error_message;     
+	return $error_message;     
 
 }
 
@@ -128,27 +128,27 @@ function validate_user_login() {
 
 function login_user($admission) {
 
-$sql = "SELECT * FROM `staff` WHERE `staffid` = '".escape($admission)."'";
-$result = query($sql);
-if(row_count($result) == 1) {
-	$row = mysqli_fetch_array($result);
+	$sql = "SELECT * FROM `staff` WHERE `staffid` = '".escape($admission)."'";
+	$result = query($sql);
+	if(row_count($result) == 1) {
+		$row = mysqli_fetch_array($result);
 
-	$user_password = $row['staffid'];
+		$user_password = $row['staffid'];
 
-	if($admission == $user_password) {
+		if($admission == $user_password) {
 
-		$_SESSION['staff_id'] = $admission;
+			$_SESSION['staff_id'] = $admission;
+
+			return true;
+		} else {
+			return false;
+		}
 
 		return true;
 	} else {
+
 		return false;
 	}
-
-	return true;
-} else {
-
-	return false;
-}
 
 } //end of function 
 
@@ -359,10 +359,10 @@ if(isset($_SESSION['upupl'])) {
 
 
 //----------------update upload first term result subjects ----------///
-if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && isset($_POST['exc']) && isset($_POST['exam']) && isset($_POST['position']) && isset($_POST['name']) && isset($_POST['admis']) && isset($_POST['cla']) && isset($_POST['tms']) && isset($_POST['ses'])) {
+if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && isset($_POST['exc']) && isset($_POST['exam']) && isset($_POST['position']) && isset($_POST['name']) && isset($_POST['admis']) && isset($_POST['cla']) && isset($_POST['tms']) && isset($_POST['ses']) && isset($_POST['reltdet'])) {
 	
 
-	$stbj 		= clean($_POST['stsbj']);
+	$stbj 		= clean(strtolower($_POST['stsbj']));
 	$test 		= clean($_POST['test']);
 	$ass 		= clean($_POST['ass']);
 	$exc 		= clean($_POST['exc']);
@@ -373,6 +373,7 @@ if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && i
 	$cla 		= clean($_POST['cla']);
 	$term 		= clean($_POST['tms']);
 	$ses 		= clean($_POST['ses']);
+	$reltdet    = clean($_POST['reltdet']);
 
 	
 	$total      = $test + $ass + $exc + $exam;
@@ -441,7 +442,7 @@ if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && i
 	
 
 
-$sql2 = "UPDATE result SET `test` = '$test', `ass` = '$ass', `classex` = '$exc', `exam` = '$exam', `total` = '$total', `position` = '$position', `grade` = '$grade', `remark` = '$remark', `term` = '$term' WHERE `class` = '$cla' AND `admno` = '$admis' AND `name` = '$name' AND `subject` = '$stbj' AND `ses` = '$ses'";
+$sql2 = "UPDATE result SET `test` = '$test', `ass` = '$ass', `classex` = '$exc', `exam` = '$exam', `total` = '$total', `position` = '$position', `grade` = '$grade', `remark` = '$remark', `term` = '$term', `subject` = '$stbj' WHERE `id` = '$reltdet'";
 $result = query($sql2);
 
 if ($term == "1st Term") {

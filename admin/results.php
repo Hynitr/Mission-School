@@ -45,11 +45,11 @@ include("functions/top.php");
                                 <option name="class" id="res">Kindergarten</option>
                                 <option name="class" id="res">Nursery 1</option>
                                 <option name="class" id="res">Nursery 2</option>
-                                <option name="class" id="res">Grade 1</option>
-                                <option name="class" id="res">Grade 2</option>
-                                <option name="class" id="res">Grade 3</option>
-                                <option name="class" id="res">Grade 4</option>
-                                <option name="class" id="res">Grade 5</option>
+                                <option name="class" id="res">Primary 1</option>
+                                <option name="class" id="res">Primary 2</option>
+                                <option name="class" id="res">Primary 3</option>
+                                <option name="class" id="res">Primary 4</option>
+                                <option name="class" id="res">Primary 5</option>
                                 <option name="class" id="res">J.S.S 1</option>
                                 <option name="class" id="res">J.S.S 2</option>
                                 <option name="class" id="res">J.S.S 3</option>

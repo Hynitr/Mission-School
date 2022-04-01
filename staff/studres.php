@@ -103,7 +103,7 @@ $rower = mysqli_fetch_array($res);
 
         
         <tr class="text-center">
-        <td>'.$row['subject'].' 
+        <td>'.ucwords($row['subject']).' 
 <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>
                             </td>
                             <td>'.$row['test'].'</td>

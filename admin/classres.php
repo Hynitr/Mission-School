@@ -48,6 +48,7 @@ $ses  =  $_GET['ses'];
                                             <th>Percentage</th>
                                             <th>Total Grade</th>
                                             <th>Teacher Comment</th>
+                                            <th>Status</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -68,6 +69,24 @@ while ($rw = mysqli_fetch_array($ww)) {
                                             <td><?php echo round($rw['perc'], 1) ?></td>
                                             <td><?php echo $rw['totgra'] ?></td>
                                             <td><?php echo ucwords($rw['principal']) ?></td>
+                                            <?php
+
+                                            //check if result is approved
+                                            if($rw['approved'] == 'approved'){
+
+                                                echo
+                                                '
+                                                <td title="click to unapprove"><a href="./updres?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'&stat=unapprove">Approved</a></td>';
+
+                                            } else {
+
+
+                                            echo '
+                                            <td title="click to approve"><a href="./updres?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'&stat=approve">Unapproved</a></td>';
+                                            
+                                            }
+
+                                            ?>
                                             <?php echo '
                                                     <td ><a href="./moreres?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'">View Full Result</a></td>';
                                                     ?>

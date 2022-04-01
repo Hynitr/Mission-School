@@ -165,17 +165,6 @@
                             </li>
                             <br />
                             <li class="nav-item has-treeview">
-                                <a href="./attd" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        Update Attendance
-                                        <i class="fas fa-angle-right right"></i>
-                                    </p>
-                                </a>
-
-                            </li>
-                            <br />
-                            <li class="nav-item has-treeview">
                                 <a href="./assignment" class="nav-link">
                                     <i class="nav-icon fas fa-book"></i>
                                     <p>

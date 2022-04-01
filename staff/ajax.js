@@ -121,23 +121,12 @@ $(document).ready(function () {
     var exc = $("#exc").val();
     var exam = $("#exam").val();
     var position = $("#position").val();
-    var attd = $("#attd").val();
-    var punc = $("#punc").val();
-    var hons = $("#hons").val();
-    var neat = $("#neat").val();
-    var nonaggr = $("#nonaggr").val();
-    var ldsk = $("#ldsk").val();
-    var sprt = $("#sprt").val();
-    var soci = $("#soci").val();
-    var yth = $("#yth").val();
-    var aes = $("#aes").val();
-    var rel = $("#rel").val();
-    var prin = $("#prin").val();
     var name = $("#name").val();
     var admis = $("#admis").val();
     var cla = $("#cla").val();
     var tms = $("#term").val();
     var ses = $("#ses").val();
+    var reltdet = $("#reltdet").val();
 
     if (stsbj == null || stsbj == "") {
       $(toastr.error("Subject can`t be empty"));
@@ -184,6 +173,7 @@ $(document).ready(function () {
                             cla: cla,
                             tms: tms,
                             ses: ses,
+                            reltdet: reltdet,
                           },
                           success: function (data) {
                             $(toastr.error(data)).html(data);
