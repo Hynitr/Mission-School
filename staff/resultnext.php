@@ -346,34 +346,38 @@ echo '<input type="text" name="year" id="pro" value="null" class="form-control" 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Class Teacher Comment .:</label>
                             <select id="prin" class="form-control">
-                                <optgroup label="Attitude">
-                                    <option id="prin">An enthusiastic learner who seems to enjoy school.</option>
-                                    <option id="prin">Exhibits a positive outlook and attitude in the classroom.
+                                <optgroup label="Positve Comment">
+                                    <option id="prin">Excellent Result</option>
+                                    <option id="prin">Display Execeptional
                                     </option>
-                                    <option id="prin">Appears well rested and ready for each day's activities.</option>
-                                    <option id="prin">Shows enthusiasm for classroom activities.</option>
-                                    <option id="prin">Shows initiative and looks for new ways to get involved.</option>
-                                    <option id="prin">Uses instincts to deal with matters independently and in a
-                                        positive way.</option>
+                                    <option id="prin">Shows Commitment</option>
+                                    <option id="prin">Consistent in his/her subjects</option>
+                                    <option id="prin">Effective and Efficient</option>
+                                    <option id="prin">Intelligent and Impressive</option>
                                     <option id="prin">Strives to reach full potential.</option>
                                     <option id="prin">Is committed to doing best.</option>
                                     <option id="prin">Seeks new challenges.</option>
                                     <option id="prin">Takes responsibility for learning.</option>
                                 </optgroup>
-                                <optgroup label="Behavior">
-                                    <option id="prin">cooperates consistently with the teacher and other students.
+                                <optgroup label="Average Comment">
+                                    <option id="prin">Satisfactory</option>
+                                    <option id="prin">After school, assitant/extra help recommended</option>
+                                    <option id="prin">Making clear progress in all subjects
                                     </option>
-                                    <option id="prin">transitions easily between classroom activities without
-                                        distraction.</option>
-                                    <option id="prin">is courteous and shows good manners in the classroom.</option>
-                                    <option id="prin">follows classroom rules.</option>
-                                    <option id="prin">conducts themselves with maturity.</option>
-                                    <option id="prin">responds appropriately when corrected.</option>
-                                    <option id="prin">remains focused on the activity at hand.</option>
-                                    <option id="prin">resists the urge to be distracted by other students.</option>
-                                    <option id="prin">is kind and helpful to everyone in the classroom.</option>
-                                    <option id="prin">sets an example of excellence in behavior and cooperation.
+                                    <option id="prin">Requires additional effort</option>
+                                    <option id="prin">Demonstrates a limited ability</option>
+                                </optgroup>
+                                <optgroup label="Improvement comments">
+                                    <option id="prin">Needs to listen to directions fully so that he/she can learn to
+                                        work independently
                                     </option>
+                                    <option id="prin">Work well but needs to learn how to work better cooperatively with
+                                        peers</option>
+                                    <option id="prin">Gives up easily when something is difficult and needs extensive
+                                        encouragement</option>
+                                    <option id="prin">Has a difficult time concentrating and gets easily distracted
+                                    </option>
+                                    <option id="prin">Fair result, try more next time</option>
                                 </optgroup>
                                 <optgroup label="Character">
                                     <option id="prin">shows respect for teachers and peers.</option>
