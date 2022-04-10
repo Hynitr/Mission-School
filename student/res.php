@@ -354,12 +354,23 @@ if($tms == "1st Term"){
         <td>'.$row['total'].'</td>';
 
         if($tms == '1st Term') {
+
+            $tst = $row['total'];
+            $sbj = $row['subject'];
+            $sndsc = "UPDATE score SET `fscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+            $sndrl = query($sndsc);
+            
             echo '
             <td>'.$row2['fscore'].'</td>
             '; 
         } else {
 
         if($tms == '2nd Term') {
+
+            $tst = $row['total'];
+            $sbj = $row['subject'];
+            $sndsc = "UPDATE score SET `sndscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+            $sndrl = query($sndsc);
 
             echo '
             <td>'.$row2['fscore'].'</td>
@@ -368,6 +379,11 @@ if($tms == "1st Term"){
         } else {
 
         if($tms == '3rd Term') {
+
+            $tst = $row['total'];
+            $sbj = $row['subject'];
+            $sndsc = "UPDATE score SET `tscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+            $sndrl = query($sndsc);
 
         echo '
         <td>'.$row2['fscore'].'</td>

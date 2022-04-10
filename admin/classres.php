@@ -66,7 +66,7 @@ while ($rw = mysqli_fetch_array($ww)) {
                                             <td><?php echo $rw['admno'] ?></td>
                                             <td><?php echo $rw['mrkpos'] ?></td>
                                             <td><?php echo $rw['mrkobt'] ?></td>
-                                            <td><?php echo round($rw['perc'], 1) ?></td>
+                                            <td><?php echo $rw['perc'] ?></td>
                                             <td><?php echo $rw['totgra'] ?></td>
                                             <td><?php echo ucwords($rw['principal']) ?></td>
                                             <?php

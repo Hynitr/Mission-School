@@ -1,20 +1,19 @@
 <?php
 include("functions/init.php");
 
-//echo "https://student.dagloremodelschool.com.ng/qrnt";
+$sql= "SELECT * FROM `result` WHERE `ses` = '2021/2022' AND `term` = '2nd Term'";
+$result_set=query($sql);
+if(row_count($result_set) == "") {
+            
+          } else {
+while($row= mysqli_fetch_array($result_set))
+ {
+	 $tst = $row['total'];
+	 $sbj = $row['subject'];
 
-    /*$e = rand(0, 9999);
+	 echo $tst." ".$sbj."<br/>"; 
 
-	$sch = $_SESSION['cal']['adm'];;
-	$cat = "STAFF";
-	$year = date("Y");
-	$admcode = "$sch/$cat/$year/";
-	$code = $admcode.$e;
-	$d = md5($code);
-    
-    echo $code.'<br/>'.$d;
-//echo $call['stud']."/qrnt";
-  
-//echo strtotime($);*/
+	 $sndsc = "UPDATE score SET `sndscore` = '$tst' WHERE `term` = '2nd Term'"
 
-echo md5('dya@cjs.');
+ }
+}
