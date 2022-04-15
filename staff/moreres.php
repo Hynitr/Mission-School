@@ -288,7 +288,7 @@ $clavg = $aow['totss'] / $aow['stds'];
 if($tms == "1st Term"){
 
     //get highest score
-    $hsl = "SELECT MAX(`fscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hsl = "SELECT MAX(`fscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $hes = query($hsl);
     $how = mysqli_fetch_array($hes);
     
@@ -296,7 +296,7 @@ if($tms == "1st Term"){
 
 
     //get lowest score
-    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $les = query($lsl);
     $low = mysqli_fetch_array($les);
     
@@ -307,14 +307,14 @@ if($tms == "1st Term"){
     if($tms == "2nd Term") {
 
     //get highest score
-    $hsl = "SELECT MAX(`sndscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hsl = "SELECT MAX(`sndscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $hes = query($hsl);
     $how = mysqli_fetch_array($hes);
     
     $highest = $how['highest'];
 
     //get lowest score
-    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $les = query($lsl);
     $low = mysqli_fetch_array($les);
     
@@ -325,14 +325,14 @@ if($tms == "1st Term"){
     if($tms == "3rd Term") {
 
         //get highest score
-    $hsl = "SELECT MAX(`tscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $hsl = "SELECT MAX(`tscore`) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $hes = query($hsl);
     $how = mysqli_fetch_array($hes);
     
     $highest = $how['highest'];
 
     //get lowest score
-    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses'";
+    $lsl = "SELECT MIN(`fscore`) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $les = query($lsl);
     $low = mysqli_fetch_array($les);
     
