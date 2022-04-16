@@ -1,19 +1,9 @@
 <?php
 include("functions/init.php");
 
-$sql= "SELECT * FROM `result` WHERE `ses` = '2021/2022' AND `term` = '2nd Term'";
+$sql= "SELECT * FROM `score` WHERE `subject` = 'Civic Education' AND `ses` = '2021/2022' AND `class` = 'S.S.S 2' AND `fscore` = (SELECT MIN('fscore') FROM `score`)";
 $result_set=query($sql);
-if(row_count($result_set) == "") {
-            
-          } else {
-while($row= mysqli_fetch_array($result_set))
- {
-	 $tst = $row['total'];
-	 $sbj = $row['subject'];
 
-	 echo $tst." ".$sbj."<br/>"; 
+$row = mysqli_fetch_array($result_set);
 
-	 $sndsc = "UPDATE score SET `sndscore` = '$tst' WHERE `term` = '2nd Term'"
-
- }
-}
+echo $row['admno'];
