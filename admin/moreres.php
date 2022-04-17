@@ -54,55 +54,55 @@ $pos  = mysqli_fetch_array($ress);
 
  if ($perc <= 39) {
     
-    $grade  = "F9 - Fail";
+    $pgrade  = "F9 - Fail";
    
      } else {
 
   if ($perc <= 44) {
     
-  $grade  = "E8 - Pass";
+  $pgrade  = "E8 - Pass";
   
   } else {
 
   if ($perc <= 49) {
 
-  $grade  = "D7 - Pass";
+  $pgrade  = "D7 - Pass";
  
   } else {
 
   if ($perc <= 54) {
   
-  $grade  = "C6 - Credit";
+  $pgrade  = "C6 - Credit";
   
   } else {
 
   if ($perc <= 59) {
   
-  $grade  = "C5 - Credit";
+  $pgrade  = "C5 - Credit";
  
   } else {
 
   if ($perc <= 64) {
 
-  $grade  = "B3 - Good";
+  $pgrade  = "B3 - Good";
  
   } else {
 
   if ($perc <= 69) {
   
-  $grade  = "B2 - Very Good";
+  $pgrade  = "B2 - Very Good";
  
   } else {
 
   if ($perc <= 89) {
   
-  $grade  = "A1 - Excellent";
+  $pgrade  = "A1 - Excellent";
  
   } else {
 
   if ($perc <= 100) {
 
-  $grade  = "A* - Distinction";
+  $pgrade  = "A* - Distinction";
  
   }
   }
@@ -116,7 +116,7 @@ $pos  = mysqli_fetch_array($ress);
 }
 
 //update new details'
-$updls = "UPDATE motor SET `mrkpos` = '$mrkpos', `mrkobt` = '$mrkobt', `perc` = '$perc', `totgra` = '$grade' WHERE `admno` = '$data' AND `class` = '$cls' AND `term` = '$tms' AND `ses` = '$ses'";
+$updls = "UPDATE motor SET `mrkpos` = '$mrkpos', `mrkobt` = '$mrkobt', `perc` = '$perc', `totgra` = '$pgrade' WHERE `admno` = '$data' AND `class` = '$cls' AND `term` = '$tms' AND `ses` = '$ses'";
 $updlslq = query($updls);
 ?>
 
@@ -646,7 +646,7 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['honesty'] ?></td>
             <td>Attentiveness in class</td>
             <td><?php echo $row2['youth'] ?></td>
-            <td><b>Total Grade.:</b> &nbsp;&nbsp; <?php echo $grade ?></td>
+            <td><b>Total Grade.:</b> &nbsp;&nbsp; <?php echo $pgrade ?></td>
             <?php
     if (isset($_SESSION['rep'])) {
    $wed = $_SESSION['rep'];
