@@ -303,6 +303,73 @@ if($tms == "1st Term"){
     $lowest = $low['lowest'];
     
     $annual = $row2['fscore'];
+
+    $total = $annual;
+
+
+    if ($total <= 39) {
+		
+		$grade  = "F9";
+		$remark = "Fail";
+	} else {
+
+	if ($total <= 44) {
+		
+	$grade  = "E8";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 49) {
+
+	$grade  = "D7";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 54) {
+	
+	$grade  = "C6";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 59) {
+	
+	$grade  = "C5";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 64) {
+
+	$grade  = "B3";
+	$remark = "Good";
+	} else {
+
+	if ($total <= 69) {
+	
+	$grade  = "B2";
+	$remark = "Very Good";	
+	} else {
+
+	if ($total <= 89) {
+	
+	$grade  = "A1";
+	$remark = "Excellent";
+	} else {
+
+	if ($total <= 100) {
+
+	$grade  = "A*";
+	$remark = "Distinction";
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+
+
     } else {
     if($tms == "2nd Term") {
 
@@ -321,6 +388,71 @@ if($tms == "1st Term"){
     $lowest = $low['lowest'];
     
     $annual = round(($row2['fscore'] + $row2['sndscore']) / 2,1);
+
+    $total = $annual;
+
+    if ($total <= 39) {
+		
+		$grade  = "F9";
+		$remark = "Fail";
+	} else {
+
+	if ($total <= 44) {
+		
+	$grade  = "E8";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 49) {
+
+	$grade  = "D7";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 54) {
+	
+	$grade  = "C6";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 59) {
+	
+	$grade  = "C5";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 64) {
+
+	$grade  = "B3";
+	$remark = "Good";
+	} else {
+
+	if ($total <= 69) {
+	
+	$grade  = "B2";
+	$remark = "Very Good";	
+	} else {
+
+	if ($total <= 89) {
+	
+	$grade  = "A1";
+	$remark = "Excellent";
+	} else {
+
+	if ($total <= 100) {
+
+	$grade  = "A*";
+	$remark = "Distinction";
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+
     }else {
     if($tms == "3rd Term") {
 
@@ -339,6 +471,71 @@ if($tms == "1st Term"){
     $lowest = $low['lowest'];
     
       $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3,1);  
+
+
+      $total = $annual;
+
+      if ($total <= 39) {
+		
+		$grade  = "F9";
+		$remark = "Fail";
+	} else {
+
+	if ($total <= 44) {
+		
+	$grade  = "E8";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 49) {
+
+	$grade  = "D7";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 54) {
+	
+	$grade  = "C6";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 59) {
+	
+	$grade  = "C5";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 64) {
+
+	$grade  = "B3";
+	$remark = "Good";
+	} else {
+
+	if ($total <= 69) {
+	
+	$grade  = "B2";
+	$remark = "Very Good";	
+	} else {
+
+	if ($total <= 89) {
+	
+	$grade  = "A1";
+	$remark = "Excellent";
+	} else {
+
+	if ($total <= 100) {
+
+	$grade  = "A*";
+	$remark = "Distinction";
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
     }
     }
     }
@@ -401,8 +598,8 @@ if($tms == "1st Term"){
         <td>'.$highest.'</td>
         <td>'.$lowest.'</td>
         <td>'.$row['position'].'</td>
-        <td>'.$row['grade'].'</td>
-        <td>'.$row['remark'].'</td>
+        <td>'.$grade.'</td>
+        <td>'.$remark.'</td>
         </tr>
 
 
