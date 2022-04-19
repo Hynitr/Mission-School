@@ -250,6 +250,8 @@ if($tms == "1st Term"){
 
     $total = $annual;
 
+    $newmobt += $annual;
+
 
     if ($total <= 39) {
 		
@@ -422,6 +424,9 @@ if($tms == "1st Term"){
 
 
       $total = $annual;
+
+      $newmobt += $annual;
+      
 
       if ($total <= 39) {
 		
