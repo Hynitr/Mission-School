@@ -11,6 +11,8 @@ echo "Error 404!";
 } else {
 
 
+$newmobt = 0;
+
 $data =  $_GET['id'];
 $tms  =  $_GET['term'];
 $cls  =  $_GET['cls'];
@@ -44,80 +46,6 @@ $dws  = mysqli_fetch_array($ds);
 $pos  = mysqli_fetch_array($ress);
 
  $mrkpos  = $dws['pss'] * 100;
- $mrkobt  = $pos['mobt'];
- if ($mrkpos == 0 && $mrkobt == 0) {
-  
-  $perc = 0;
-  $grade = 0;
- } else {
- $perc    = ($mrkobt/$mrkpos) * 100;
-
- if ($perc <= 39) {
-    
-    $pgrade  = "F9 - Fail";
-   
-     } else {
-
-  if ($perc <= 44) {
-    
-  $pgrade  = "E8 - Pass";
-  
-  } else {
-
-  if ($perc <= 49) {
-
-  $pgrade  = "D7 - Pass";
- 
-  } else {
-
-  if ($perc <= 54) {
-  
-  $pgrade  = "C6 - Credit";
-  
-  } else {
-
-  if ($perc <= 59) {
-  
-  $pgrade  = "C5 - Credit";
- 
-  } else {
-
-  if ($perc <= 64) {
-
-  $pgrade  = "B3 - Good";
- 
-  } else {
-
-  if ($perc <= 69) {
-  
-  $pgrade  = "B2 - Very Good";
- 
-  } else {
-
-  if ($perc <= 89) {
-  
-  $pgrade  = "A1 - Excellent";
- 
-  } else {
-
-  if ($perc <= 100) {
-
-  $pgrade  = "A* - Distinction";
- 
-  }
-  }
-  }
-  }
-  }
-  }
-  }
-  }
-  }
-}
-
-//update new details'
-$updls = "UPDATE motor SET `mrkpos` = '$mrkpos', `mrkobt` = '$mrkobt', `perc` = '$perc', `totgra` = '$pgrade' WHERE `admno` = '$data' AND `class` = '$cls' AND `term` = '$tms' AND `ses` = '$ses'";
-$updlslq = query($updls);
 ?>
 
 <!DOCTYPE html>
@@ -276,6 +204,22 @@ $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
 
 
+if($row2['fscore'] == '') {
+
+    $row2['fscore'] == 0;
+}
+
+if($row2['sndscore'] == '') {
+
+    $row2['sndscore'] == 0;
+}
+
+if($row2['tscore'] == '') {
+
+    $row2['tscore'] == 0;
+}
+
+
 
 //class avg
 $aql = "SELECT sum(`total`) as totss, sum(`sn`) as stds from `result` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `term` = '$tms'";
@@ -390,6 +334,10 @@ if($tms == "1st Term"){
     $annual = round(($row2['fscore'] + $row2['sndscore']) / 2,1);
 
     $total = $annual;
+
+    $newmobt += $annual;
+
+    //echo $nhgt;
 
     if ($total <= 39) {
 		
@@ -608,6 +556,80 @@ if($tms == "1st Term"){
 
         }
         }
+
+ if ($mrkpos == 0 && $newmobt == 0) {
+  
+  $perc = 0;
+  $grade = 0;
+ } else {
+ $perc    = ($newmobt/$mrkpos) * 100;
+
+ if ($perc <= 39) {
+    
+    $pgrade  = "F9 - Fail";
+   
+     } else {
+
+  if ($perc <= 44) {
+    
+  $pgrade  = "E8 - Pass";
+  
+  } else {
+
+  if ($perc <= 49) {
+
+  $pgrade  = "D7 - Pass";
+ 
+  } else {
+
+  if ($perc <= 54) {
+  
+  $pgrade  = "C6 - Credit";
+  
+  } else {
+
+  if ($perc <= 59) {
+  
+  $pgrade  = "C5 - Credit";
+ 
+  } else {
+
+  if ($perc <= 64) {
+
+  $pgrade  = "B3 - Good";
+ 
+  } else {
+
+  if ($perc <= 69) {
+  
+  $pgrade  = "B2 - Very Good";
+ 
+  } else {
+
+  if ($perc <= 89) {
+  
+  $pgrade  = "A1 - Excellent";
+ 
+  } else {
+
+  if ($perc <= 100) {
+
+  $pgrade  = "A* - Distinction";
+ 
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+}
+
+//update new details'
+$updls = "UPDATE motor SET `mrkpos` = '$mrkpos', `mrkobt` = '$newmobt', `perc` = '$perc', `totgra` = '$pgrade' WHERE `admno` = '$data' AND `class` = '$cls' AND `term` = '$tms' AND `ses` = '$ses'";
+$updlslq = query($updls);
         ?>
     </table>
     <table style=" width: 100%;" class="table table-bordered">
@@ -632,7 +654,7 @@ if(row_count($result_set2) == "") {
             <td>Obedience</td>
             <td><?php echo $row2['sport'] ?></td>
             <td><b>Mark Possible .:</b> &nbsp;&nbsp; <?php echo $mrkpos ?></td>
-            <td><b>Mark Obtained .:</b> &nbsp;&nbsp; <?php echo $mrkobt ?></td>
+            <td><b>Mark Obtained .:</b> &nbsp;&nbsp; <?php echo $newmobt ?></td>
         </tr>
         <tr>
             <td>Politeness</td>
