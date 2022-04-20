@@ -351,8 +351,14 @@ if($tms == "1st Term"){
     $low = mysqli_fetch_array($les);
     
     $lowest = $low['lowest'];
+
+    if($row2['fscore'] == 0) {
+        $annual = $tst;
+    } else {
     
     $annual = round(($row2['fscore'] + $row2['sndscore']) / 2,1);
+    
+    }
 
     $total = $annual;
 
