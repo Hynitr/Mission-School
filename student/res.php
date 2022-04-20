@@ -570,55 +570,55 @@ if($tms == "1st Term"){
         <!--<td>'.$lowest.'</td>-->
         <td>'.$row['position'].'</td>';
 
-        if ($row['total'] <= 39) {
+        if ($annual <= 39) {
 		
             $grader  = "F9";
             $remark = "Fail";
         } else {
     
-        if ($row['total'] <= 44) {
+        if ($annual <= 44) {
             
         $grader  = "E8";
         $remark = "Pass";
         } else {
     
-        if ($row['total'] <= 49) {
+        if ($annual <= 49) {
     
         $grader  = "D7";
         $remark = "Pass";
         } else {
     
-        if ($row['total'] <= 54) {
+        if ($annual <= 54) {
         
         $grader  = "C6";
         $remark = "Credit";
         } else {
     
-        if ($row['total'] <= 59) {
+        if ($annual <= 59) {
         
         $grader  = "C5";
         $remark = "Credit";
         } else {
     
-        if ($row['total'] <= 64) {
+        if ($annual <= 64) {
     
         $grader  = "B3";
         $remark = "Good";
         } else {
     
-        if ($row['total'] <= 69) {
+        if ($annual <= 69) {
         
         $grader  = "B2";
         $remark = "Very Good";	
         } else {
     
-        if ($row['total'] <= 89) {
+        if ($annual <= 89) {
         
         $grader  = "A1";
         $remark = "Excellent";
         } else {
     
-        if ($row['total'] <= 100) {
+        if ($annual <= 100) {
     
         $grader  = "A*";
         $remark = "Distinction";
