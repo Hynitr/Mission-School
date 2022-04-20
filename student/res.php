@@ -183,7 +183,7 @@ $pos  = mysqli_fetch_array($ress);
             <th>Cumm <br />Score</th>
             <th>Class <br />Avg.</th>
             <th>Highest <br />in class</th>
-            <th>Lowest <br />in class</th>
+            <!--<th>Lowest <br />in class</th>-->
             <th>Position</th>
             <th>Grade</th>
             <th>Remark</th>
@@ -561,7 +561,7 @@ if($tms == "1st Term"){
         <td>'.$annual.'</td>
         <td>'.round($clavg,0).'</td>
         <td>'.$highest.'</td>
-        <td>'.$lowest.'</td>
+        <!--<td>'.$lowest.'</td>-->
         <td>'.$row['position'].'</td>';
 
         if ($row['total'] <= 39) {
