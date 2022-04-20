@@ -34,10 +34,10 @@ function insert() {
 
 function confirm($result) {
 		global $con;
-	if(!$result) {
+	/*if(!$result) {
 
 		die("QUERY FAILED" . mysqli_error($con));
-	}
+	}*/
 }
 
 function fetch_array($result) {

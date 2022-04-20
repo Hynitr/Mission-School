@@ -199,26 +199,11 @@ if(row_count($result_set) == "") {
 while($row= mysqli_fetch_array($result_set))
  {
 $frd = $row['subject'];
+
+//get scores
 $sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd' AND `ses` = '$ses'";
 $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
-
-
-if($row2['fscore'] == '') {
-
-    $row2['fscore'] == 0;
-}
-
-if($row2['sndscore'] == '') {
-
-    $row2['sndscore'] == 0;
-}
-
-if($row2['tscore'] == '') {
-
-    $row2['tscore'] == 0;
-}
-
 
 
 //class avg
@@ -230,6 +215,13 @@ $clavg = $aow['totss'] / $aow['stds'];
 
 
 if($tms == "1st Term"){
+
+
+    $tst = $row['total'];
+    $sbj = $row['subject'];
+    $sndsc = "UPDATE score SET `fscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+    $sndrl = query($sndsc);
+
 
     //get highest score
     $hsl = "SELECT MAX(`fscore` + 0) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
@@ -319,6 +311,33 @@ if($tms == "1st Term"){
     } else {
     if($tms == "2nd Term") {
 
+
+        $tst = $row['total'];
+        $sbj = $row['subject'];
+
+
+        if($row2['fscore'] == '' || $row2['fscore'] == null) {
+
+            $row2['fscore'] = 0;
+
+            //insert into db
+            $fsl = "INSERT INTO `score`(`admno`, `class`, `subject`, `fscore`, `sndscore`, `tscore`, `ses`)";
+            $fsl.="VALUES('$data', '$cls', '$sbj', '0', '0', '0', '$ses')";
+
+            $frl = query($fsl);
+        }
+
+
+        if($row2['sndscore'] == '' || $row2['sndscore'] == null) {
+    
+            $row2['sndscore'] = $tst;
+        }
+
+
+        $sndsc = "UPDATE `score` SET `sndscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+        $sndrl = query($sndsc);
+  
+    
     //get highest score
     $hsl = "SELECT MAX(`sndscore` + 0) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
     $hes = query($hsl);
@@ -327,7 +346,7 @@ if($tms == "1st Term"){
     $highest = $how['highest'];
 
     //get lowest score
-    $lsl = "SELECT MIN(`fscore` + 0) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
+    $lsl = "SELECT MIN(`sndscore` + 0) as lowest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls' HAVING MAX(`sndscore` + 0) > 0";
     $les = query($lsl);
     $low = mysqli_fetch_array($les);
     
@@ -405,6 +424,13 @@ if($tms == "1st Term"){
 
     }else {
     if($tms == "3rd Term") {
+
+
+        $tst = $row['total'];
+        $sbj = $row['subject'];
+        $sndsc = "UPDATE score SET `tscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
+        $sndrl = query($sndsc);
+
 
         //get highest score
     $hsl = "SELECT MAX(`tscore` + 0) as highest from `score` WHERE `subject` = '$frd' AND `ses` = '$ses' AND `class` = '$cls'";
@@ -504,11 +530,6 @@ if($tms == "1st Term"){
         <td>'.$row['total'].'</td>';
 
         if($tms == '1st Term') {
-
-            $tst = $row['total'];
-            $sbj = $row['subject'];
-            $sndsc = "UPDATE score SET `fscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
-            $sndrl = query($sndsc);
             
             echo '
             <td>'.$row2['fscore'].'</td>
@@ -516,11 +537,6 @@ if($tms == "1st Term"){
         } else {
 
         if($tms == '2nd Term') {
-
-            $tst = $row['total'];
-            $sbj = $row['subject'];
-            $sndsc = "UPDATE score SET `sndscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
-            $sndrl = query($sndsc);
 
             echo '
             <td>'.$row2['fscore'].'</td>
@@ -530,14 +546,10 @@ if($tms == "1st Term"){
 
         if($tms == '3rd Term') {
 
-            $tst = $row['total'];
-            $sbj = $row['subject'];
-            $sndsc = "UPDATE score SET `tscore` = '$tst' WHERE `admno` = '$data' AND `class` = '$cls' AND `subject` = '$sbj' AND `ses` = '$ses'";
-            $sndrl = query($sndsc);
-
         echo '
         <td>'.$row2['fscore'].'</td>
         <td>'.$row2['sndscore'].'</td>
+        <td>'.$row2['tscore'].'</td>
 
         ';
         }
@@ -550,8 +562,74 @@ if($tms == "1st Term"){
         <td>'.round($clavg,0).'</td>
         <td>'.$highest.'</td>
         <td>'.$lowest.'</td>
-        <td>'.$row['position'].'</td>
-        <td>'.$grade.'</td>
+        <td>'.$row['position'].'</td>';
+
+        if ($row['total'] <= 39) {
+		
+            $grader  = "F9";
+            $remark = "Fail";
+        } else {
+    
+        if ($row['total'] <= 44) {
+            
+        $grader  = "E8";
+        $remark = "Pass";
+        } else {
+    
+        if ($row['total'] <= 49) {
+    
+        $grader  = "D7";
+        $remark = "Pass";
+        } else {
+    
+        if ($row['total'] <= 54) {
+        
+        $grader  = "C6";
+        $remark = "Credit";
+        } else {
+    
+        if ($row['total'] <= 59) {
+        
+        $grader  = "C5";
+        $remark = "Credit";
+        } else {
+    
+        if ($row['total'] <= 64) {
+    
+        $grader  = "B3";
+        $remark = "Good";
+        } else {
+    
+        if ($row['total'] <= 69) {
+        
+        $grader  = "B2";
+        $remark = "Very Good";	
+        } else {
+    
+        if ($row['total'] <= 89) {
+        
+        $grader  = "A1";
+        $remark = "Excellent";
+        } else {
+    
+        if ($row['total'] <= 100) {
+    
+        $grader  = "A*";
+        $remark = "Distinction";
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        
+
+
+        echo '
+        <td>'.$grader.'</td>
         <td>'.$remark.'</td>
         </tr>
 
