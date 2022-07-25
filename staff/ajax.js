@@ -18,6 +18,25 @@ $(document).ready(function () {
       ses;
   });
 
+  //pyschomotor
+  $("#pdvupl").click(function () {
+    var classr = $("#class").val();
+    var cls = $("#cls").val();
+    var term = $("#term").val();
+    var ses = $("#ses").val();
+
+    $(toastr.error("Loading Please wait..."));
+    window.location.href =
+      "./resultnext?id=" +
+      classr +
+      "&cls=" +
+      cls +
+      "&term=" +
+      term +
+      "&ses=" +
+      ses;
+  });
+
   //uploading result data
 
   $("#ressl").click(function () {
@@ -232,6 +251,7 @@ $(document).ready(function () {
   $("#subdone").click(function () {
     var classr = $("#admis").val();
     var cls = $("#cla").val();
+    var ncls = $("#cls").val();
     var term = $("#term").val();
     var ses = $("#ses").val();
     var attd = $("#attd").val();
@@ -253,7 +273,6 @@ $(document).ready(function () {
     var mrkbt = $("#mrkbt").val();
     var perci = $("#perci").val();
     var tog = $("#tog").val();
-    var prof = $("#pro").val();
     var resm = $("#resmes").val();
 
     if (attd == null || attd == "") {
@@ -410,9 +429,227 @@ $(document).ready(function () {
                                                       mrkbt: mrkbt,
                                                       perci: perci,
                                                       tog: tog,
-                                                      prof: prof,
                                                       ses: ses,
                                                       resm: resm,
+                                                      ncls: ncls,
+                                                    },
+                                                    success: function (data) {
+                                                      $(toastr.error(data)).html(data);
+                                                    },
+                                                  });
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+
+
+  //edit result
+  $("#eddsubdone").click(function () {
+    var classr = $("#admis").val();
+    var cls = $("#cla").val();
+    var ncls = $("#cls").val();
+    var term = $("#term").val();
+    var ses = $("#ses").val();
+    var attd = $("#attd").val();
+    var punc = $("#punc").val();
+    var hons = $("#hons").val();
+    var neat = $("#neat").val();
+    var nonaggr = $("#nonaggr").val();
+    var ldsk = $("#ldsk").val();
+    var sprt = $("#sprt").val();
+    var soci = $("#soci").val();
+    var yth = $("#yth").val();
+    var aes = $("#aes").val();
+    var rel = $("#rel").val();
+    var prin = $("#prin").val();
+    var tso = $("#tso").val();
+    var tsa = $("#tsa").val();
+    var tsp = $("#tsp").val();
+    var mrkps = $("#mrkps").val();
+    var mrkbt = $("#mrkbt").val();
+    var perci = $("#perci").val();
+    var tog = $("#tog").val();
+    var resm = $("#resmes").val();
+    var conf = "holla";
+
+    if (attd == null || attd == "") {
+      $(toastr.error("Carrying Out Assignment field is empty"));
+    } else {
+      if (attd > 5) {
+        $(toastr.error("Max Carrying Out Assignment score is 5"));
+      } else {
+        if (punc == null || punc == "") {
+          $(toastr.error("Politeness field is empty"));
+        } else {
+          if (punc > 5) {
+            $(toastr.error("Politeness field value is greater 5"));
+          } else {
+            if (hons == null || hons == "") {
+              $(toastr.error("Honesty field is empty"));
+            } else {
+              if (hons > 5) {
+                $(toastr.error("Honesty field value can`t be greater than 5"));
+              } else {
+                if (neat == null || neat == "") {
+                  $(toastr.error("Neatness field is empty"));
+                } else {
+                  if (neat > 5) {
+                    $(toastr.error("Neatness field can`t be empty"));
+                  } else {
+                    if (nonaggr == null || nonaggr == "") {
+                      $(toastr.error("Self Control field can`t be empty"));
+                    } else {
+                      if (nonaggr > 5) {
+                        $(
+                          toastr.error(
+                            "Self Control field value can`t be greater 5"
+                          )
+                        );
+                      } else {
+                        if (ldsk == null || ldsk == "") {
+                          $(
+                            toastr.error("rganisational Ability field is empty")
+                          );
+                        } else {
+                          if (ldsk > 5) {
+                            $(
+                              toastr.error(
+                                "rganisational Ability field value can`t be greater than 5"
+                              )
+                            );
+                          } else {
+                            if (sprt == null || sprt == "") {
+                              $(toastr.error("Obedience field can`t be empty"));
+                            } else {
+                              if (sprt > 5) {
+                                $(
+                                  toastr.error(
+                                    "Obedience field value can`t be greater than 5"
+                                  )
+                                );
+                              } else {
+                                if (soci == null || soci == "") {
+                                  $(
+                                    toastr.error(
+                                      "Attitude to Work field can`t be empty"
+                                    )
+                                  );
+                                } else {
+                                  if (soci > 5) {
+                                    $(
+                                      toastr.error(
+                                        "Attitude to Work field value is empty"
+                                      )
+                                    );
+                                  } else {
+                                    if (yth == null || yth == "") {
+                                      $(
+                                        toastr.error(
+                                          "Attentiveness in class field is empty"
+                                        )
+                                      );
+                                    } else {
+                                      if (yth > 5) {
+                                        $(
+                                          toastr.error(
+                                            "Attentiveness in class field value can`t be greater than 5"
+                                          )
+                                        );
+                                      } else {
+                                        if (aes == null || aes == "") {
+                                          $(
+                                            toastr.error(
+                                              "Co-operation field is empty"
+                                            )
+                                          );
+                                        } else {
+                                          if (aes > 5) {
+                                            $(
+                                              toastr.error(
+                                                "Co-operation field value can`t be greater than 5"
+                                              )
+                                            );
+                                          } else {
+                                            if (rel == null || rel == "") {
+                                              $(
+                                                toastr.error(
+                                                  "Relationship with others field is empty"
+                                                )
+                                              );
+                                            } else {
+                                              if (rel > 5) {
+                                                $(
+                                                  toastr.error(
+                                                    "Relationship with others field value can`t be greater than 5"
+                                                  )
+                                                );
+                                              } else {
+                                                if (
+                                                  prin == null ||
+                                                  prin == ""
+                                                ) {
+                                                  $(
+                                                    toastr.error(
+                                                      "Teacher comment field is empty"
+                                                    )
+                                                  );
+                                                } else {
+                                                  $(
+                                                    toastr.error(
+                                                      "Loading Please wait..."
+                                                    )
+                                                  );
+
+                                                  $.ajax({
+                                                    type: "post",
+                                                    url: "functions/init.php",
+                                                    data: {
+                                                      attd: attd,
+                                                      punc: punc,
+                                                      hons: hons,
+                                                      neat: neat,
+                                                      nonaggr: nonaggr,
+                                                      ldsk: ldsk,
+                                                      sprt: sprt,
+                                                      soci: soci,
+                                                      yth: yth,
+                                                      aes: aes,
+                                                      rel: rel,
+                                                      prin: prin,
+                                                      classr: classr,
+                                                      cls: cls,
+                                                      term: term,
+                                                      tso: tso,
+                                                      tsa: tsa,
+                                                      tsp: tsp,
+                                                      mrkps: mrkps,
+                                                      mrkbt: mrkbt,
+                                                      perci: perci,
+                                                      tog: tog,
+                                                      ses: ses,
+                                                      resm: resm,
+                                                      ncls: ncls,
+                                                      conf: conf,
                                                     },
                                                     success: function (data) {
                                                       $(toastr.error(data)).html(data);

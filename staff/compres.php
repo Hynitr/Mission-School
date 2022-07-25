@@ -12,14 +12,9 @@ $row= mysqli_fetch_array($result_set);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Upload Result</h1>
+                    <h1>Physical Development Report</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item active">Upload Result</li>
-                    </ol>
-                </div>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -33,8 +28,8 @@ $row= mysqli_fetch_array($result_set);
                     <div class="col-md-12">
 
                         <div class="card card-danger">
-                            <div class="card-header">
-                                <h3 class="card-title">Upload Report Sheet for <?php echo $row['staffclass'] ?></h3>
+                            <div class="card-header">Upload Physical Development Report
+                                </h3>
                             </div>
                             <div class="card-body">
 
@@ -43,11 +38,11 @@ $row= mysqli_fetch_array($result_set);
                                 <label>Select a Student.:</label>
                                 <select name="class" id="class" class="custom-select">
                                     <?php
-$ws = $row['staffclass'];
- $sql2="SELECT * from students WHERE `Class` = '$ws' ORDER BY `surName` asc";
+ $ws = $row['staffclass'];
+ $sql2="SELECT * from students WHERE `Class` = '$ws' ORDER BY `SurName` asc";
  $result_set2=query($sql2);
  if (row_count($result_set2) < 1) { 
-  echo '<option name="class" id="class">No Student Available for this class</option>';
+  echo '<option name="cls" id="cls">No Student Available for this class</option>';
  } else {
  while($row2= mysqli_fetch_array($result_set2)){   
  ?> <optgroup label="<?php echo $row2['SurName']." ".$row2['Middle Name']." ".$row2['Last Name'] ?>">
@@ -101,7 +96,6 @@ while ($rw = mysqli_fetch_array($ww)) {
                                 ?>
                                     </select>
                                 </div>
-
                                 <label>Select a Term.:</label>
                                 <select name="class" id="term" class="custom-select">
 
@@ -110,8 +104,9 @@ while ($rw = mysqli_fetch_array($ww)) {
                                     <option id="term">3rd Term</option>
                                 </select>
                                 <br /><br />
-                                <button type="button" name="submit" id="upl" class="btn btn-primary">Upload
-                                    Result</button>
+
+                                <button type="button" name="submit" id="pdvupl" class="btn btn-primary">Physical
+                                    Development Report</button>
 
                                 <!-- /.card-body -->
                             </div>
@@ -136,14 +131,6 @@ while ($rw = mysqli_fetch_array($ww)) {
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-
-
-
-
-
-
-
 
 
 

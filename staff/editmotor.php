@@ -16,6 +16,11 @@ $res = query("$sl");
 $rower = mysqli_fetch_array($res);
 
 
+$sql= "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses' AND `class` = '$cls'";
+$result_set=query($sql);
+$row= mysqli_fetch_array($result_set);
+
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -25,125 +30,18 @@ $rower = mysqli_fetch_array($res);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Upload Result Details for <?php echo $term ?></h1>
+                    <h1 class="m-0 text-dark">Edit Result Details for <?php echo $term ?></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Upload Result</li>
+                        <li class="breadcrumb-item active">Edit Result</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
-
-    <?php
- $sql= "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses' AND `class` = '$cls'";
- $result_set = query($sql);
- 
-    if(row_count($result_set) == null) {
-            
-          } else {
-          ?>
-
-
-    <section id="preview" class="content">
-        <!-- right column -->
-        <div class="col-md-12">
-            <div class="card card-dark">
-                <div class="card-header">
-                    <h3 class="card-title">Preview <?php echo $cls ?> - <?php echo $term ?> (<?php echo $ses ?> session)
-                        Result for
-                        <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></h3>
-
-                    <div class="card-tools">
-
-                        <a
-                            href="./editmotor?id=<?php echo $data ?>&cls=<?php echo $cls ?>&term=<?php echo $term ?>&ses=<?php echo $ses ?>">
-                            <button type="button" id="del" data-toggle="tooltip" title="Edit" class="btn btn-tool"><i
-                                    class="fas fa-edit"></i>
-                            </button></a>
-
-                        <button type="button" data-toggle="tooltip" title="Minimize" class="btn btn-tool"
-                            data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap table-bordered table-striped">
-                        <thead>
-                            <tr class="text-center">
-                                <th>Carrying Out Assignment</th>
-                                <th>Politeness</th>
-                                <th>Honesty</th>
-                                <th>Neatness</th>
-                                <th>Self Control</th>
-                                <th>Organisational Ability</th>
-                                <th>Obedience</th>
-                                <th>Attitude to Work</th>
-                                <th>Attentiveness in class</th>
-                                <th>Co-operation</th>
-                                <th>Relationship with others</th>
-                                <th>Mark Obt / <br />Mark Posb</th>
-                                <th>Percent</th>
-                                <th>Grade</th>
-
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php
- $sql= "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses' AND `class` = '$cls'";
- $result_set=query($sql);
-  while($row= mysqli_fetch_array($result_set))
- {
-
-
-                            echo '
-
-                            <tr class="text-center">
-                                                <td>'.$row['attendance'].' </td>
-                                                <td>'.$row['punctuality'].'</td>
-                                                <td>'.$row['honesty'].'</td>
-                                                <td>'.$row['neatness'].'</td>
-                                                <td>'.$row['nonaggr'].'</td>                                               
-                                                <td>'.$row['leader'].'</td>
-                                                <td>'.$row['sport'].' </td>
-                                                <td>'.$row['societies'].'</td>
-                                                <td>'.$row['youth'].'</td>
-                                                <td>'.$row['aesth'].'</td>
-                                                <td>'.$row['relation'].'</td>  
-                                                <td>'.$row['mrkobt']." / ".$row['mrkpos'].'</td>
-                                                <td>'.$row['perc'].'</td>
-                                                <td>'.$row['totgra'].'</td>
-                    
-                    
-                             </tr>
-                    
-
-
-                            ';
-                            }
-                            if(row_count($result_set) == 0) {
-
-                            echo "<span style='color:red'>No records found</span>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- /.card -->
-        </div>
-    </section>
-    <?php
-          }
-          ?>
-
 
 
     <!-- Main content -->
@@ -153,7 +51,7 @@ $rower = mysqli_fetch_array($res);
             <!-- general form elements disabled -->
             <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title">Upload Result Details for <strong>
+                    <h3 class="card-title">Edit Result Details for <strong>
                             <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></strong> -
                         <?php echo $term ?> </h3>
                     <div class="card-tools">
@@ -164,7 +62,7 @@ $rower = mysqli_fetch_array($res);
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form name="uploadQuestionaire" role="form">
+                    <form name="EditQuestionaire" role="form">
 
                         <div class="form-group">
                             <div class="row">
@@ -175,37 +73,42 @@ $rower = mysqli_fetch_array($res);
                                             <label for="exampleInputEmail1">Carrying Out Assignment.:</label>
 
                                             <input type="number" name="date" id="attd"
-                                                placeholder="Carrying Out Assignment" class="form-control">
+                                                value="<?php echo $row['attendance'] ?>"
+                                                placeholder=" Carrying Out Assignment" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Politeness.:</label>
-                                            <input type="number" name="month" id="punc" placeholder="Politeness"
+                                            <input type="number" name="month" id="punc"
+                                                value="<?php echo $row['punctuality'] ?>" placeholder="Politeness"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Honesty.:</label>
                                             <input type="number" name="year" id="hons" placeholder="Honesty"
-                                                class="form-control">
+                                                value="<?php echo $row['honesty'] ?>" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Neatness.:</label>
-                                            <input type="number" name="year" id="neat" placeholder="Neatness"
+                                            <input type="number" name="year" id="neat"
+                                                value="<?php echo $row['neatness'] ?>" placeholder="Neatness"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Self Control.:</label>
-                                            <input type="number" name="year" id="nonaggr" placeholder="Self Control"
+                                            <input type="number" name="year" id="nonaggr"
+                                                value="<?php echo $row['nonaggr'] ?>" placeholder="Self Control"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Organisational Ability.:</label>
                                             <input type="number" name="year" id="ldsk"
-                                                placeholder="Organisational Ability" class="form-control">
+                                                placeholder="Organisational Ability"
+                                                value="<?php echo $row['leader'] ?>" class="form-control">
                                         </div>
                                         <!-- /.input group -->
 
@@ -217,31 +120,36 @@ $rower = mysqli_fetch_array($res);
                                     <div class="row">
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Obedience.:</label>
-                                            <input type="number" name="date" id="sprt" placeholder="Obedience"
+                                            <input type="number" name="date" id="sprt"
+                                                value="<?php echo $row['sport'] ?>" placeholder="Obedience"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Attitude to Work.:</label>
-                                            <input type="number" name="month" id="soci" placeholder="Attitude to Work"
+                                            <input type="number" name="month" id="soci"
+                                                value="<?php echo $row['societies'] ?>" placeholder="Attitude to Work"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Attentiveness in class.:</label>
                                             <input type="number" name="year" id="yth"
-                                                placeholder="Attentiveness in class" class="form-control">
+                                                value="<?php echo $row['youth'] ?>" placeholder="Attentiveness in class"
+                                                class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Co-operation.:</label>
-                                            <input type="number" name="year" id="aes" placeholder="Co-operation"
+                                            <input type="number" name="year" id="aes"
+                                                value="<?php echo $row['aesth'] ?>" placeholder="Co-operation"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputEmail1">Relationship with others.:</label>
                                             <input type="number" name="year" id="rel"
+                                                value="<?php echo $row['relation'] ?>"
                                                 placeholder="Relationship with others" class="form-control">
                                         </div>
 
@@ -344,7 +252,7 @@ $pos  = mysqli_fetch_array($ress);
   }
 }
 ?>
-                                        <div class="form-group col-md-3">
+                                        <div class=" form-group col-md-3">
                                             <label for="exampleInputEmail1">Mark Possible.:</label>
                                             <input type="number" name="year" id="mrkps" value="<?php echo $mrkpos ?>"
                                                 class="form-control" disabled>
@@ -487,7 +395,8 @@ $pos  = mysqli_fetch_array($ress);
 
                         <p class="text-danger">Make sure you recheck all details typed in before submitting</p>
 
-                        <button type="button" id="subdone" class="btn float-right btn-primary btn-outline-light">Submit
+                        <button type="button" id="eddsubdone"
+                            class="btn float-right btn-primary btn-outline-light">Submit
                             Result</button>
 
                     </form>
@@ -531,7 +440,7 @@ $pos  = mysqli_fetch_array($ress);
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <p class="text-grey">Resetting will clear off all uploaded result(s) for the above named person.</p>
+                    <p class="text-grey">Resetting will clear off all Edited result(s) for the above named person.</p>
                     <p class="text-grey">Are you sure you want to continue?</p>
                     <input type="text" value="<?php echo $data; ?>" id="subb" hidden>
                     <input type="text" value="<?php echo $term; ?>" id="trm" hidden>
@@ -577,7 +486,7 @@ $pos  = mysqli_fetch_array($ress);
                     <form name="deleting">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Subject Uploaded</span>
+                                <span class="input-group-text">Subject Edited</span>
                             </div>
                             <select id="position" class="form-control">
                                 <?php
@@ -687,7 +596,7 @@ if(isset($_SESSION['del'])) {
 }
 
 
-//notification for upload result
+//notification for Edit result
 if(isset($_SESSION['upup'])) {
     unset($_SESSION['upup']);
 

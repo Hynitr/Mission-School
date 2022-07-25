@@ -122,37 +122,17 @@
 
                             </li>
                             <br />
-                            <!----
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-               Upload Files
-                <i class="right fas fa-angle-right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./bill" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>School Bill</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./lbk" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Of Book</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./news" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Newsletter</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <br/>---->
+                            <li class="nav-item has-treeview">
+                                <a href="./compres" class="nav-link">
+                                    <i class="nav-icon fas fa-check"></i>
+                                    <p>
+                                        Complete Result
+                                        <i class="fas fa-angle-right right"></i>
+                                    </p>
+                                </a>
+
+                            </li>
+                            <br />
                             <li class="nav-item has-treeview">
                                 <a href="./preview" class="nav-link">
                                     <i class="nav-icon fas fa-eye"></i>

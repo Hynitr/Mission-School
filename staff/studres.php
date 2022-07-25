@@ -38,13 +38,17 @@ $rower = mysqli_fetch_array($res);
     <!-- /.content-header -->
 
     <?php
- $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";
+ $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses' AND `class` = '$cls'";
  $result_set = query($sql);
+
+ if(row_count($result_set) == 0 || row_count($result_set) == null) {
+
+    
+    } else {
+
  while($row= mysqli_fetch_array($result_set))
  {
-  if(row_count($result_set) == "") {
-            
-          } else {
+  
           ?>
 
 
@@ -94,8 +98,9 @@ $rower = mysqli_fetch_array($res);
 
                         <tbody>
                             <?php
- $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";
+ $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses' AND `class` = '$cls'";
  $result_set=query($sql);
+        
   while($row= mysqli_fetch_array($result_set))
  {
 
@@ -120,10 +125,6 @@ $rower = mysqli_fetch_array($res);
 
                             ';
                             } 
-                            if(row_count($result_set) == 0) {
-
-                            echo "<span style='color:red'>No records found</span>";
-                            }
                             ?>
                         </tbody>
                     </table>
@@ -221,8 +222,9 @@ $rower = mysqli_fetch_array($res);
 
                         <button type="button" id="ressl" class="btn float-left btn-danger btn-outline-light">Upload
                             Subject Result</button>
-                        <button type="button" id="done" class="btn float-right btn-primary btn-outline-light">Next step
-                            >>></button>
+                        <a href="./frn"><button type="button"
+                                class="btn float-right btn-primary btn-outline-light">Select a
+                                new pupil/student</button></a>
 
                     </form>
                 </div>
@@ -419,6 +421,8 @@ $(function() {
 
 if(isset($_SESSION['del'])) {
    echo "<script>$(toastr.error('Subject Result Deleted Successfully'));</script>";
+
+   unset($_SESSION['del']);
  
 }
 
@@ -427,6 +431,7 @@ if(isset($_SESSION['del'])) {
 if(isset($_SESSION['upup'])) {
    echo "<script>$(toastr.error('Result uploaded sucessfully'));</script>";
 
+   unset($_SESSION['upup']);
 }
 
 
@@ -434,11 +439,15 @@ if(isset($_SESSION['upup'])) {
 if(isset($_SESSION['res'])) {
    echo "<script>$(toastr.error('Result resetted sucessfully'));</script>";
 
+   unset($_SESSION['res']);
+
 }
 
 //notification for update result
 if(isset($_SESSION['upupl'])) {
    echo "<script>$(toastr.error('Result updated sucessfully'));</script>";
+
+   unset($_SESSION['upupl']);
 
 }
 
