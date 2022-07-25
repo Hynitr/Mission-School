@@ -913,4 +913,46 @@ function birthday_alert() {
 		}*/
 			
 		}
+
+//submit result
+if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && isset($_POST['neat']) && isset($_POST['nonaggr']) && isset($_POST['ldsk']) && isset($_POST['sprt']) && isset($_POST['soci']) && isset($_POST['yth']) && isset($_POST['aes']) && isset($_POST['rel']) && isset($_POST['prin']) && isset($_POST['classr']) && isset($_POST['cls']) && isset($_POST['term']) && isset($_POST['tso']) && isset($_POST['tsa']) && isset($_POST['tsp']) && isset($_POST['mrkps']) && isset($_POST['mrkbt']) && isset($_POST['perci']) && isset($_POST['tog']) && isset($_POST['ses']) && isset($_POST['resm']) && isset($_POST['ncls']) || isset($_POST['conf']) && isset($_POST['tess'])) {
+
+
+	$prin 		= clean($_POST['prin']);
+	$classr		= clean($_POST['classr']);
+	$cls 		= clean($_POST['cls']);
+	$term 		= clean($_POST['term']);
+	$mrkps 		= clean($_POST['mrkps']);
+	$mrkbt		= clean($_POST['mrkbt']);
+	$perci 		= clean($_POST['perci']);
+	$tog 		= clean($_POST['tog']);
+	$ses  		= clean($_POST['ses']);
+	$resm       = clean($_POST['resm']);
+	$tess 		= clean($_POST['tess']);
+
+	if (isset($_POST['ncls'])) {
+		
+		$ncls 		= clean($_POST['ncls']);
+		mover($classr, $ncls);
+	}	
+
+	//update pyscho
+	if(isset($_POST['conf']) && isset($_POST['conf']) == "holla") {
+
+		$sql2 = "UPDATE motor SET  `principal` = '$prin', `mrkpos` = '$mrkps', `mrkobt` = '$mrkbt', `perc` = '$perci', `totgra` = '$tog', `resm`  = '$resm', `tess` = '$tess' WHERE `class` = '$cls' AND `admno` = '$classr' AND `term` = '$term' AND `ses` = '$ses'";
+		$result = query($sql2);
+
+		$_SESSION['doneresll'] = "Result submitted successfully";
+
+		echo 'Loading.. Please wait';	
+		echo '<script>window.location.href = "./moreres?id='.$classr.'&cls='.$cls.'&term='.$term.'&ses='.$ses.'"</script>';
+		
+	} 
+}
+
+function mover($classr, $ncls)  {
+
+	$ssl2 = "UPDATE students SET `Class` = '$ncls' WHERE `AdminID` = '$classr'";
+	$ress2 = query($ssl2);	
+}
 ?>

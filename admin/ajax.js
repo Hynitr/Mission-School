@@ -703,4 +703,114 @@ $(document).ready(function () {
       });
     }
   });
+
+  //submit result
+  $("#eddsubdone").click(function () {
+    var classr = $("#admis").val();
+    var cls = $("#cla").val();
+    var term = $("#term").val();
+    var ses = $("#ses").val();
+    var attd = $("#attd").val();
+    var punc = $("#punc").val();
+    var hons = $("#hons").val();
+    var neat = $("#neat").val();
+    var nonaggr = $("#nonaggr").val();
+    var ldsk = $("#ldsk").val();
+    var prin = $("#prin").val();
+    var mrkps = $("#mrkps").val();
+    var mrkbt = $("#mrkbt").val();
+    var perci = $("#perci").val();
+    var tog = $("#tog").val();
+    var resm = $("#resmes").val();
+    var tess = $("#tess").val();
+    var conf = "holla";
+
+    if (attd == null || attd == "") {
+      $(toastr.error("Mental alertness field is empty"));
+    } else {
+      if (attd > 5) {
+        $(toastr.error("Max Mental alertness score is 5"));
+      } else {
+        if (punc == null || punc == "") {
+          $(toastr.error("Physical development field is empty"));
+        } else {
+          if (punc > 5) {
+            $(toastr.error("Physical development field value is greater 5"));
+          } else {
+            if (hons == null || hons == "") {
+              $(toastr.error("Adjustment in school field is empty"));
+            } else {
+              if (hons > 5) {
+                $(toastr.error("Adjustment in school field value can`t be greater than 5"));
+              } else {
+                if (neat == null || neat == "") {
+                  $(toastr.error("Relationship with teachers field is empty"));
+                } else {
+                  if (neat > 5) {
+                    $(toastr.error("Relationship with teachers field can`t be empty"));
+                  } else {
+                    if (nonaggr == null || nonaggr == "") {
+                      $(toastr.error("Relationship with students field can`t be empty"));
+                    } else {
+                      if (nonaggr > 5) {
+                        $(
+                          toastr.error(
+                            "Relationship with students field value can`t be greater 5"
+                          )
+                        );
+                      } else {
+                        if (ldsk == null || ldsk == "") {
+                          $(toastr.error("General attitude and habit field is empty"));
+                        } else {
+                          if (ldsk > 5) {
+                            $(toastr.error("General attitude and habit field value can`t be greater than 5"));
+                          } else {
+                            if(tess == null || tess == ''){
+                              $(toastr.error("Principal comment cannot be empty"));
+                            } else {
+                              $(toastr.error("Loading Please wait..."));
+
+                              $.ajax({
+                                type: "post",
+                                url: "functions/init.php",
+                                data: {
+                                  attd: attd,
+                                  punc: punc,
+                                  hons: hons,
+                                  neat: neat,
+                                  nonaggr: nonaggr,
+                                  ldsk: ldsk,
+                                  prin: prin,
+                                  classr: classr,
+                                  cls: cls,
+                                  term: term,
+                                  mrkps: mrkps,
+                                  mrkbt: mrkbt,
+                                  perci: perci,
+                                  tog: tog,
+                                  ses: ses,
+                                  resm: resm,
+                                  conf: conf,
+                                  tess: tess
+                                },
+                                success: function (data) {
+                                  $(
+                                    toastr.error(data)
+                                  ).html(data);
+                                },
+                              });
+                            }
+                          }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          }
+        }
+  });
 });
