@@ -159,9 +159,63 @@ $rower = mysqli_fetch_array($res);
                 <!-- /.card-header -->
                 <div class="card-body">
                     <form name="uploadQuestionaire" role="form">
-                        <div class="form-group">
+
+                        <?php 
+                      if($term == '2nd Term' || $term == '3rd Term') {
+
+                        $sbl = "SELECT * FROM `score` WHERE `class` = '$cls' AND `admno` = '$data' AND `ses` = '$ses'";
+                        $sel = query($sbl);
+
+                        if(row_count($sel) == '' || row_count($sel) == null) {
+
+                            echo '
+                            
+                            <div class="form-group">
                             <label for="exampleInputEmail1">Input Subject .:</label>
                             <input type="text" class="form-control" id="stsbj"
+                                placeholder="Mathematics, English, Chemistry">
+                        </div>
+                            ';
+                        } else {
+                        
+                            echo '
+                            
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Input Subject .:</label>
+                              <select id="stsbj" class="form-control">';
+                                   
+
+                                while($rww = mysqli_fetch_array($sel)){
+
+                                  echo  '<option id="stsbj">'.$rww['subject'].'</option>';
+                                }
+                                    echo
+                                    
+                                    '<option id="stsbj">Create a subject</option>
+                                    </select>
+                        </div>
+                            ';
+                        }
+
+                      } else {
+
+
+                        echo '
+
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Input Subject .:</label>
+                        <input type="text" class="form-control" id="stsbj"
+                            placeholder="Mathematics, English, Chemistry">
+                    </div>
+                        
+                        ';
+                      }
+                   
+                    ?>
+
+                        <div style="display: none" class="form-group" id="creator">
+                            <label for="exampleInputEmail1">Input Subject .:</label>
+                            <input type="text" class="form-control" id="stbj"
                                 placeholder="Mathematics, English, Chemistry">
                         </div>
 

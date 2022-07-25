@@ -1,4 +1,23 @@
 $(document).ready(function () {
+
+  //refral notice
+  $("#stsbj").change(function () {
+    
+    var ref = $("#stsbj").val();
+
+    if(ref == 'Create a subject') {
+
+      $("#creator").show();
+
+    } else {
+
+      $("#creator").hide();
+    }
+
+  });
+
+
+
   //upload first term result
   $("#upl").click(function () {
     var classr = $("#class").val();
@@ -40,7 +59,17 @@ $(document).ready(function () {
   //uploading result data
 
   $("#ressl").click(function () {
-    var stsbj = $("#stsbj").val();
+    var hey = $("#stsbj").val();
+
+    if(hey == 'Create a subject') {
+
+      var stsbj = $("#stbj").val();
+      
+    } else {
+
+      var stsbj = $("#stsbj").val();
+    }
+
     var test = $("#test").val();
     var ass = $("#ass").val();
     var exc = $("#exc").val();
