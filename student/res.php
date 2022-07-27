@@ -240,7 +240,7 @@ $qw2  = mysqli_fetch_array($res2);
             echo '
             <td>'.$row2['fscore'].'</td>
             <td>'.$annual.'</td>
-            <td>'.$clavg.'</td>
+            <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
             <td>'.$lowest.'</td>
             ';
@@ -277,7 +277,7 @@ $qw2  = mysqli_fetch_array($res2);
             <td>'.$row2['fscore'].'</td>
             <td>'.$row2['sndscore'].'</td>
             <td>'.$annual.'</td>
-            <td>'.$clavg.'</td>
+            <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
             <td>'.$lowest.'</td>
             ';
@@ -330,7 +330,7 @@ $qw2  = mysqli_fetch_array($res2);
             <td>'.$row2['fscore'].'</td>
             <td>'.$row2['sndscore'].'</td>
             <td>'.$annual.'</td>
-            <td>'.$clavg.'</td>
+            <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
             <td>'.$lowest.'</td>
 
