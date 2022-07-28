@@ -228,7 +228,17 @@ $qw2  = mysqli_fetch_array($res2);
             $les = query($lsl);
             $low = mysqli_fetch_array($les);
             
-            $lowest = $low['lowest'];
+            $lowet = $low['lowest'];
+
+            if($lowet == 0) {
+
+                $lowest = 5;
+
+            } else {
+
+                $lowest = $low['lowest'];
+
+            }
             
             echo '
             <td>'.$row2['fscore'].'</td>
@@ -254,7 +264,16 @@ $qw2  = mysqli_fetch_array($res2);
             $les = query($lsl);
             $low = mysqli_fetch_array($les);
             
-            $lowest = $low['lowest'];
+            $lowet = $low['lowest'];
+
+            if($lowet == 0) {
+
+                $lowest = 5;
+
+            } else {
+
+                $lowest = $low['lowest'];
+            }
 
             if($row2['fscore'] == 0) {
 
@@ -292,7 +311,16 @@ $qw2  = mysqli_fetch_array($res2);
             $les = query($lsl);
             $low = mysqli_fetch_array($les);
             
-            $lowest = $low['lowest'];
+            $lowet = $low['lowest'];
+
+            if($lowet == 0) {
+
+                $lowest = 5;
+
+            } else {
+
+                $lowest = $low['lowest'];
+            }
 
             if($row2['fscore'] == 0 && $row2['sndscore'] == 0) {
 
