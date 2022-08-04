@@ -178,7 +178,6 @@ $qw2  = mysqli_fetch_array($res2);
             <th>Cumm <br />Score</th>
             <th>Class <br />Avg.</th>
             <th>Highest <br />in class</th>
-            <th>Lowest <br />in class</th>
             <th>Position</th>
             <th>Grade</th>
             <th>Remark</th>
@@ -252,7 +251,6 @@ $qw2  = mysqli_fetch_array($res2);
             <td>'.$annual.'</td>
             <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
-            <td>'.$lowest.'</td>
             ';
             } else {
 
@@ -299,7 +297,6 @@ $qw2  = mysqli_fetch_array($res2);
             <td>'.$annual.'</td>
             <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
-            <td>'.$lowest.'</td>
             ';
 
             } else {
@@ -362,7 +359,6 @@ $qw2  = mysqli_fetch_array($res2);
             <td>'.$annual.'</td>
             <td>'.round($clavg, 0).'</td>
             <td>'.$highest.'</td>
-            <td>'.$lowest.'</td>
 
             ';
 
