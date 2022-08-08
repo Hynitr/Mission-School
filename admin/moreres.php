@@ -356,10 +356,71 @@ $qw2  = mysqli_fetch_array($res2);
             }
             }
             }
+            if ($annual <= 39) {
+		
+                $grade  = "F9";
+                $remark = "Fail";
+            } else {
+        
+            if ($annual <= 44) {
+                
+            $grade  = "E8";
+            $remark = "Pass";
+            } else {
+        
+            if ($annual <= 49) {
+        
+            $grade  = "D7";
+            $remark = "Pass";
+            } else {
+        
+            if ($annual <= 54) {
+            
+            $grade  = "C6";
+            $remark = "Credit";
+            } else {
+        
+            if ($annual <= 59) {
+            
+            $grade  = "C5";
+            $remark = "Credit";
+            } else {
+        
+            if ($annual <= 64) {
+        
+            $grade  = "B3";
+            $remark = "Good";
+            } else {
+        
+            if ($annual <= 69) {
+            
+            $grade  = "B2";
+            $remark = "Very Good";	
+            } else {
+        
+            if ($annual <= 89) {
+            
+            $grade  = "A1";
+            $remark = "Excellent";
+            } else {
+        
+            if ($annual <= 100) {
+        
+            $grade  = "A*";
+            $remark = "Distinction";
+            }
+            }
+            }
+            }
+            }
+            }
+            }
+            }
+            }
             echo '
             <td>'.$row['position'].'</td>
-            <td>'.$row['grade'].'</td>
-            <td>'.$row['remark'].'</td>
+            <td>'.$grade.'</td>
+            <td>'.$remark.'</td>
         </tr>
 
 
