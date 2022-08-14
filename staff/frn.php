@@ -91,10 +91,10 @@ $ws = $row['staffclass'];
                                     <select name="ses" id="ses" class="form-control">
 
                                         <?php
-$sl = "SELECT * FROM `sessions` ORDER BY `id` desc";
-$ww = query($sl);
-while ($rw = mysqli_fetch_array($ww)) {
- ?>
+                                        $sl = "SELECT * FROM `sessions` ORDER BY `id` desc";
+                                        $ww = query($sl);
+                                        while ($rw = mysqli_fetch_array($ww)) {
+                                        ?>
                                         <option name="class" id="ses"><?php echo $rw['ses'] ?></option>
                                         <?php
                                 }

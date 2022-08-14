@@ -18,7 +18,7 @@ $tms  =  $_GET['term'];
 $cls  =  $_GET['cls'];
 $ses  =  $_GET['ses'];
 
-$sql3 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
+$sql3 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses' AND `class` = '$cls'";
 $result_set3 = query($sql3);
 $row3 = mysqli_fetch_array($result_set3);
 
@@ -336,16 +336,16 @@ $qw2  = mysqli_fetch_array($res2);
 
             if($row2['fscore'] == 0 && $row2['sndscore'] != 0) {
 
-            $annual = round(($row2['sndscore'] + $row2['tscore']) / 2, 1);
+            $annual = round(($row2['sndscore'] + $row2['tscore']) / 2, 0);
 
             } else {
 
             if($row2['fscore'] != 0 && $row2['sndscore'] == 0) {
 
-            $annual = round(($row2['fscore'] + $row2['tscore']) / 2, 1);
+            $annual = round(($row2['fscore'] + $row2['tscore']) / 2, 0);
             } else {
 
-            $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3, 1);
+            $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3, 0);
 
 
             }
@@ -470,7 +470,19 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['punctuality'] ?></td>
             <td>Attitude to Work</td>
             <td><?php echo $row2['societies'] ?></td>
+
+            <?php
+            if($tms == '3rd Term') {
+            ?>
+            <td><b>Percentage .:</b> &nbsp;&nbsp; <?php echo $row2['perc'] ?></td>
+            <td><b>Promoted .:</b> &nbsp;&nbsp; <?php echo $qw2['Class'] ?></td>
+            <?php
+            } else {
+            ?>
             <td colspan="2"><b>Percentage .:</b> &nbsp;&nbsp; <?php echo $row2['perc'] ?></td>
+            <?php
+            }
+            ?>
         </tr>
         <tr>
             <td>Honesty</td>
