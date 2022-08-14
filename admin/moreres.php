@@ -463,9 +463,20 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['societies'] ?></td>
             <?php
             if($tms == '3rd Term') {
+
+                $a = round(($row2['mrkobt'] / $row2['mrkpos']) * 100, 0);
+
+                if($a <= 49) {
+
+                    $b = 'SEE THE MANAGEMENT';
+
+                } else {
+
+                    $b = 'PROMOTED';
+                }
             ?>
             <td><b>Percentage .:</b> &nbsp;&nbsp; <?php echo $row2['perc'] ?></td>
-            <td><b>Promoted .:</b> &nbsp;&nbsp; <?php echo $qw2['Class'] ?></td>
+            <td> <b><?php echo $b ?></b></td>
             <?php
             } else {
             ?>

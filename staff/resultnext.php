@@ -379,9 +379,9 @@ $pos  = mysqli_fetch_array($ress);
                             <label>Promoted to.:</label>
                             <select name="cls" id="cls" class="custom-select">';
                                 
-                                if($grade < 49) {
+                                if($grade <= 49) {
 
-                                    echo '<option name="cls" id="cls">See the Management</option>';
+                                    echo '<option name="cls" id="cls">'.$cls.'</option>';
 
                                 } else {
 
