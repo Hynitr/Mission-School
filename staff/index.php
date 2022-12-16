@@ -97,7 +97,7 @@
 
             </div>
             <!-- /.row -->
-            <!-- TABLE: LATEST ORDERS -->
+           
 
             <!-- /.row -->
         </div><!-- /.container-fluid -->
