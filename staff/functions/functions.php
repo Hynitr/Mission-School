@@ -292,6 +292,7 @@ if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && i
 								$ssl = "INSERT INTO score(`class`, `admno`, `subject`, `fscore`, `sndscore`, `tscore`, `ses`)";
 								$ssl.= "VALUES('$cla', '$admis', '$stbj', '$fscore', '$sndscore', '$tscore', '$ses')";
 								$qws = query($ssl);
+
 							} else {
 
 								$fscore =  $total;
@@ -653,7 +654,7 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 		
 		$ncls 		= clean($_POST['ncls']);
 		mover($classr, $ncls);
-	}	
+	} 
 
 	//update pyscho
 	if(isset($_POST['conf']) && isset($_POST['conf']) == "holla") {

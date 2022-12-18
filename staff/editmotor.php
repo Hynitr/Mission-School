@@ -323,7 +323,7 @@ $pos  = mysqli_fetch_array($ress);
                                 ';
                             } else {
 
-                                echo '<input type="text" name="cls" id="cls" hidden>';
+                                echo '<input type="text" name="cls" id="cls" value="'.$cls.'" hidden>';
                             }
                                 ?>
 

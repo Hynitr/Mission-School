@@ -1,9 +1,22 @@
 <?php
 include("functions/init.php");
 
-$sql= "SELECT * FROM `score` WHERE `subject` = 'Civic Education' AND `ses` = '2021/2022' AND `class` = 'S.S.S 2' AND `fscore` = (SELECT MIN('fscore') FROM `score`)";
-$result_set=query($sql);
+$data = 'S.S.S 1';
+$tms = '1st Term';
+$ses = '2022/2023';
 
-$row = mysqli_fetch_array($result_set);
+$sl = "SELECT * FROM motor WHERE `class` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
+$ww = query($sl);
+if(row_count($ww) == 0) {
 
-echo $row['admno'];
+  echo "<span class='text-center' style='color:red; font-size: 50px'>No result found</span>";
+} else {
+
+while ($rw = mysqli_fetch_array($ww)) {
+
+    $id = $rw['admno'];
+    $asl = "UPDATE students SET `class` = '$data' WHERE `AdminID` = '$id'";
+    $aes = query($asl);
+    
+}
+}
